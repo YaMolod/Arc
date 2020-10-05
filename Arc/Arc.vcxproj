@@ -15,9 +15,11 @@
     <ClInclude Include="source\Arc\Application.h" />
     <ClInclude Include="source\Arc\Core.h" />
     <ClInclude Include="source\Arc\EntryPointh.h" />
+    <ClInclude Include="source\Arc\Log.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Arc\Application.cpp" />
+    <ClCompile Include="source\Arc\Log.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -68,11 +70,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>ARC_PLATFORM_WINDOWS;ARC_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Arc\vendor\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y "$(OutDir)arc.dll" "$(SolutionDir)bin\$(Configuration)-$(Platform)\Sandbox\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -82,6 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>ARC_PLATFORM_WINDOWS;ARC_BUILD_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Arc\vendor\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -89,6 +96,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y "$(OutDir)arc.dll" "$(SolutionDir)bin\$(Configuration)-$(Platform)\Sandbox\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

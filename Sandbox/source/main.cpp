@@ -1,15 +1,14 @@
 #include "Arc.h"
 
-class Sandbox : public Arc::Application
+class Sandbox : public ARC::Application
 {
 public:
 	Sandbox() {}
 	~Sandbox() {}
 
-
 };
 
-Arc::Application* Arc::CreateApplication()
+ARC::Application* ARC::CreateApplication()
 {
 	return new Sandbox();
 }

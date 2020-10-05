@@ -1,6 +1,6 @@
 #include "Application.h"
 
-namespace Arc
+namespace ARC
 {
 	Application::Application()
 	{
