@@ -15,6 +15,10 @@
     <ClInclude Include="source\Arc\Application.h" />
     <ClInclude Include="source\Arc\Core.h" />
     <ClInclude Include="source\Arc\EntryPointh.h" />
+    <ClInclude Include="source\Arc\Events\ApplicationEvent.h" />
+    <ClInclude Include="source\Arc\Events\Event.h" />
+    <ClInclude Include="source\Arc\Events\KeyEvent.h" />
+    <ClInclude Include="source\Arc\Events\MouseEvent.h" />
     <ClInclude Include="source\Arc\Log.h" />
   </ItemGroup>
   <ItemGroup>
@@ -70,7 +74,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>ARC_PLATFORM_WINDOWS;ARC_BUILD_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Arc\vendor\spdlog\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Arc\vendor\spdlog\include;$(SolutionDir)Arc\source;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -88,7 +92,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>ARC_PLATFORM_WINDOWS;ARC_BUILD_DLL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Arc\vendor\spdlog\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Arc\vendor\spdlog\include;$(SolutionDir)Arc\source;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

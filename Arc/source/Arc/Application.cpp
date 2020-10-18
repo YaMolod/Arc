@@ -1,5 +1,8 @@
 #include "Application.h"
 
+#include "Arc/Events/ApplicationEvent.h"
+#include "Log.h"
+
 namespace ARC
 {
 	Application::Application()
@@ -12,6 +15,9 @@ namespace ARC
 
 	void Application::Run()
 	{
+		WindowResizeEvent e(1280, 720);
+		ARC_TRACE(e);
+
 		while (true);
 	}
 }
