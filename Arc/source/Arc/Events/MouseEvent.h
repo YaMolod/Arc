@@ -1,8 +1,7 @@
 #pragma once
 
+#include "arcpch.h"
 #include "Event.h"
-
-#include <sstream>
 
 namespace ARC
 {

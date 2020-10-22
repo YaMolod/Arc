@@ -1,9 +1,9 @@
-﻿  Application.cpp
-C:\Engine\Arc\Arc\source\Arc\Log.h(18,54): warning C4251: ARC::Log::s_CoreLogger: class "std::shared_ptr<spdlog::logger>" должен иметь dll-интерфейс для использования клиентами class "ARC::Log"
-C:\Engine\Arc\Arc\vendor\spdlog\include\spdlog\details\registry.h(34): message : см. объявление "std::shared_ptr<spdlog::logger>"
-C:\Engine\Arc\Arc\source\Arc\Log.h(19,56): warning C4251: ARC::Log::s_ClientLogger: class "std::shared_ptr<spdlog::logger>" должен иметь dll-интерфейс для использования клиентами class "ARC::Log"
-C:\Engine\Arc\Arc\vendor\spdlog\include\spdlog\details\registry.h(34): message : см. объявление "std::shared_ptr<spdlog::logger>"
-     Создается библиотека C:\Engine\Arc\bin\Debug-x64\Arc\Arc.lib и объект C:\Engine\Arc\bin\Debug-x64\Arc\Arc.exp
-  Arc.vcxproj -> C:\Engine\Arc\bin\Debug-x64\Arc\Arc.dll
-  C:\Engine\Arc\bin\Debug-x64\Arc\Arc.dll
-  Скопировано файлов: 1.
+﻿     Создается библиотека C:\Engine\Arc\bin\Debug-x64\Arc\Arc.lib и объект C:\Engine\Arc\bin\Debug-x64\Arc\Arc.exp
+WindowsWindow.obj : error LNK2019: ссылка на неразрешенный внешний символ glfwInit в функции "private: virtual void __cdecl ARC::WindowsWindow::Init(struct ARC::WindowProps const &)" (?Init@WindowsWindow@ARC@@EEAAXAEBUWindowProps@2@@Z).
+WindowsWindow.obj : error LNK2019: ссылка на неразрешенный внешний символ glfwCreateWindow в функции "private: virtual void __cdecl ARC::WindowsWindow::Init(struct ARC::WindowProps const &)" (?Init@WindowsWindow@ARC@@EEAAXAEBUWindowProps@2@@Z).
+WindowsWindow.obj : error LNK2019: ссылка на неразрешенный внешний символ glfwSetWindowUserPointer в функции "private: virtual void __cdecl ARC::WindowsWindow::Init(struct ARC::WindowProps const &)" (?Init@WindowsWindow@ARC@@EEAAXAEBUWindowProps@2@@Z).
+WindowsWindow.obj : error LNK2019: ссылка на неразрешенный внешний символ glfwPollEvents в функции "public: virtual void __cdecl ARC::WindowsWindow::OnUpdate(void)" (?OnUpdate@WindowsWindow@ARC@@UEAAXXZ).
+WindowsWindow.obj : error LNK2019: ссылка на неразрешенный внешний символ glfwMakeContextCurrent в функции "private: virtual void __cdecl ARC::WindowsWindow::Init(struct ARC::WindowProps const &)" (?Init@WindowsWindow@ARC@@EEAAXAEBUWindowProps@2@@Z).
+WindowsWindow.obj : error LNK2019: ссылка на неразрешенный внешний символ glfwSwapBuffers в функции "public: virtual void __cdecl ARC::WindowsWindow::OnUpdate(void)" (?OnUpdate@WindowsWindow@ARC@@UEAAXXZ).
+WindowsWindow.obj : error LNK2019: ссылка на неразрешенный внешний символ glfwSwapInterval в функции "public: virtual void __cdecl ARC::WindowsWindow::SetVSync(bool)" (?SetVSync@WindowsWindow@ARC@@UEAAX_N@Z).
+C:\Engine\Arc\bin\Debug-x64\Arc\Arc.dll : fatal error LNK1120: неразрешенных внешних элементов: 7

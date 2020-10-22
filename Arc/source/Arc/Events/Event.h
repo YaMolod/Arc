@@ -1,9 +1,7 @@
 #pragma once
 
+#include "arcpch.h"
 #include "Arc/Core.h"
-
-#include <string>
-#include <functional>
 
 namespace ARC
 {
@@ -17,13 +15,13 @@ namespace ARC
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
-	enum EventCategory
+	enum  EventCategory
 	{
 		None = 0,
 		EventCategoryApplication = BIT(0),
-		EventCategoryInput = BIT(1),
-		EventCategoryKeyboard = BIT(2),
-		EventCategoryMouse = BIT(3),
+		EventCategoryInput       = BIT(1),
+		EventCategoryKeyboard    = BIT(2),
+		EventCategoryMouse       = BIT(3),
 		EventCategoryMouseButton = BIT(4)
 	};
 
