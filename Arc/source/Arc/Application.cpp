@@ -19,7 +19,7 @@ namespace ARC
 
 	void Application::Run()
 	{
-		while (m_Running)
+		while (true)
 		{
 			glClearColor(1, 0, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);

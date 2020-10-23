@@ -1,0 +1,9 @@
+﻿  arcpch.cpp
+C:\Engine\Arc\Arc\source\arcpch.cpp(1,10): fatal error C1083: Не удается открыть файл предкомпилированный заголовок: Debug\Arc.pch: No such file or directory,
+  Application.cpp
+C:\Engine\Arc\Arc\source\Arc\Application.cpp(1,10): fatal error C1083: Не удается открыть файл предкомпилированный заголовок: Debug\Arc.pch: No such file or directory,
+  Log.cpp
+C:\Engine\Arc\Arc\source\Arc\Log.cpp(1,10): fatal error C1083: Не удается открыть файл предкомпилированный заголовок: Debug\Arc.pch: No such file or directory,
+  WindowsWindow.cpp
+C:\Engine\Arc\Arc\source\Arc\Platform\Windows\WindowsWindow.cpp(1,10): fatal error C1083: Не удается открыть файл предкомпилированный заголовок: Debug\Arc.pch: No such file or directory,
+  Создание кода...

@@ -1,0 +1,20 @@
+﻿  arcpch.cpp
+  Application.cpp
+C:\Engine\Arc\Arc\source\Arc\Application.h(17,35): warning C4251: ARC::Application::m_Window: class "std::unique_ptr<ARC::Window,std::default_delete<ARC::Window>>" должен иметь dll-интерфейс для использования клиентами class "ARC::Application"
+C:\Engine\Arc\Arc\source\Arc\Application.h(17): message : см. объявление "std::unique_ptr<ARC::Window,std::default_delete<ARC::Window>>"
+C:\Engine\Arc\Arc\source\Arc\Log.h(18,54): warning C4251: ARC::Log::s_CoreLogger: class "std::shared_ptr<spdlog::logger>" должен иметь dll-интерфейс для использования клиентами class "ARC::Log"
+C:\Engine\Arc\Arc\vendor\spdlog\include\spdlog\details\registry.h(34): message : см. объявление "std::shared_ptr<spdlog::logger>"
+C:\Engine\Arc\Arc\source\Arc\Log.h(19,56): warning C4251: ARC::Log::s_ClientLogger: class "std::shared_ptr<spdlog::logger>" должен иметь dll-интерфейс для использования клиентами class "ARC::Log"
+C:\Engine\Arc\Arc\vendor\spdlog\include\spdlog\details\registry.h(34): message : см. объявление "std::shared_ptr<spdlog::logger>"
+  Log.cpp
+C:\Engine\Arc\Arc\source\Arc\Log.h(18,54): warning C4251: ARC::Log::s_CoreLogger: class "std::shared_ptr<spdlog::logger>" должен иметь dll-интерфейс для использования клиентами class "ARC::Log"
+C:\Engine\Arc\Arc\vendor\spdlog\include\spdlog\details\registry.h(34): message : см. объявление "std::shared_ptr<spdlog::logger>"
+C:\Engine\Arc\Arc\source\Arc\Log.h(19,56): warning C4251: ARC::Log::s_ClientLogger: class "std::shared_ptr<spdlog::logger>" должен иметь dll-интерфейс для использования клиентами class "ARC::Log"
+C:\Engine\Arc\Arc\vendor\spdlog\include\spdlog\details\registry.h(34): message : см. объявление "std::shared_ptr<spdlog::logger>"
+  WindowsWindow.cpp
+C:\Engine\Arc\Arc\source\Arc\Log.h(18,54): warning C4251: ARC::Log::s_CoreLogger: class "std::shared_ptr<spdlog::logger>" должен иметь dll-интерфейс для использования клиентами class "ARC::Log"
+C:\Engine\Arc\Arc\vendor\spdlog\include\spdlog\details\registry.h(34): message : см. объявление "std::shared_ptr<spdlog::logger>"
+C:\Engine\Arc\Arc\source\Arc\Log.h(19,56): warning C4251: ARC::Log::s_ClientLogger: class "std::shared_ptr<spdlog::logger>" должен иметь dll-интерфейс для использования клиентами class "ARC::Log"
+C:\Engine\Arc\Arc\vendor\spdlog\include\spdlog\details\registry.h(34): message : см. объявление "std::shared_ptr<spdlog::logger>"
+  Создание кода...
+  Arc.vcxproj -> C:\Engine\Arc\Arc\..\bin\Debug-windows-x86_64\Arc\Arc.dll

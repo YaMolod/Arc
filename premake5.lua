@@ -9,6 +9,10 @@ workspace "Arc"
 	}
 
 	outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+	IncludeDir = {}
+	IncludeDir["GLFW"] = "Arc/vendor/GLFW/include"
+
+	include "Arc/vendor/GLFW"
 
 project "Arc"
 	location "Arc"
@@ -18,31 +22,42 @@ project "Arc"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-intermediates/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "arcpch.h"
+	pchsource "Arc/source/arcpch.cpp"
+
 	files
 	{
-		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"Arc/source/**.h",
+		"Arc/source/**.cpp"
 	}
 
 	includedirs
 	{
-		"%{prj.name}/vendor/spdlog/include"
+		"Arc/vendor/spdlog/include",
+		"Arc/source",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
-		cppdialect "C++19"
+		cppdialect "C++17"
 		staticruntime "On"
 		systemversion "latest"
 
 		defines
 		{
-		"ARC_PLATFORM_WINDOWS",
-		"ARC_BUILD_DLL",
+			"ARC_PLATFORM_WINDOWS",
+			"ARC_BUILD_DLL",
 		}
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
 		}
 
 	filter "configurations:Debug"
@@ -60,7 +75,6 @@ project "Arc"
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
-
 	language "C++"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -68,8 +82,8 @@ project "Sandbox"
 
 	files
 	{
-		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"Sandbox/source/**.h",
+		"Sandbox/source/**.cpp"
 	}
 
 	includedirs
@@ -84,7 +98,7 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++19"
+		cppdialect "C++17"
 		staticruntime "On"
 		systemversion "latest"
 
