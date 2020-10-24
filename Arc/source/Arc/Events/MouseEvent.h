@@ -31,6 +31,7 @@ namespace ARC
 
 	class ARC_API MouseScrolledEvent : public Event
 	{
+	public:
 		MouseScrolledEvent(float xOffset, float yOffset)
 			: m_XOffset(xOffset), m_YOffset(yOffset)
 		{}
@@ -67,10 +68,10 @@ namespace ARC
 		int m_Button;
 	};
 
-	class ARC_API MoseButtonPressedEvent : public MouseButtonEvent
+	class ARC_API MouseButtonPressedEvent : public MouseButtonEvent
 	{
 	public:
-		MoseButtonPressedEvent(int button)
+		MouseButtonPressedEvent(int button)
 			: MouseButtonEvent(button)
 		{}
 
