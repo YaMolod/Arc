@@ -3,10 +3,11 @@
 #include "Arc/Log.h"
 #include "WindowsWindow.h"
 
-#include "Events/ApplicationEvent.h"
-#include "Events/MouseEvent.h"
-#include "Events/KeyEvent.h"
+#include "Arc/Events/ApplicationEvent.h"
+#include "Arc/Events/MouseEvent.h"
+#include "Arc/Events/KeyEvent.h"
 
+#include <glad/glad.h>
 
 namespace ARC
 {
@@ -51,6 +52,8 @@ namespace ARC
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		ARC_CORE_ASSERT(status, "Could not initialize Glad!");
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 

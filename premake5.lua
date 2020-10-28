@@ -11,8 +11,10 @@ workspace "Arc"
 	outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 	IncludeDir = {}
 	IncludeDir["GLFW"] = "Arc/vendor/GLFW/include"
+	IncludeDir["Glad"] = "Arc/vendor/Glad/include"
 
 	include "Arc/vendor/GLFW"
+	include "Arc/vendor/Glad"
 
 project "Arc"
 	location "Arc"
@@ -35,12 +37,14 @@ project "Arc"
 	{
 		"Arc/vendor/spdlog/include",
 		"Arc/source",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -53,6 +57,7 @@ project "Arc"
 		{
 			"ARC_PLATFORM_WINDOWS",
 			"ARC_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -62,14 +67,17 @@ project "Arc"
 
 	filter "configurations:Debug"
 		defines "ARC_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "ARC_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "ARC_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 project "Sandbox"
@@ -109,12 +117,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "ARC_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "ARC_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "ARC_DIST"
+		buildoptions "/MD"
 		optimize "On"

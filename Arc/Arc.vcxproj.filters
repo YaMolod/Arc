@@ -37,6 +37,12 @@
     <ClInclude Include="source\Arc\Events\MouseEvent.h">
       <Filter>Arc\Events</Filter>
     </ClInclude>
+    <ClInclude Include="source\Arc\Layer.h">
+      <Filter>Arc</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Arc\LayerStack.h">
+      <Filter>Arc</Filter>
+    </ClInclude>
     <ClInclude Include="source\Arc\Log.h">
       <Filter>Arc</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Arc\Application.cpp">
+      <Filter>Arc</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Arc\Layer.cpp">
+      <Filter>Arc</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Arc\LayerStack.cpp">
       <Filter>Arc</Filter>
     </ClCompile>
     <ClCompile Include="source\Arc\Log.cpp">
