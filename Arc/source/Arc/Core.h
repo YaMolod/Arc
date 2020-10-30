@@ -10,6 +10,10 @@
 	#error Arc only supports Windows
 #endif
 
+#ifdef ARC_DEBUG
+	#define ARC_ENABLE_ASSERTS
+#endif
+
 #ifdef ARC_ENABLE_ASSERTS
 	#define ARC_ASSERT(x, ...) { if(!(x)) { ARC_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 	#define ARC_CORE_ASSERT(x, ...) { if(!(x)) { ARC_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
@@ -19,3 +23,5 @@
 #endif
 
 #define BIT(x) (1 << x)
+
+#define ARC_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)

@@ -1,6 +1,7 @@
 workspace "Arc"
 	architecture "x64"
-
+	startproject "Sandbox"
+	
 	configurations
 	{
 		"Debug",
@@ -12,14 +13,19 @@ workspace "Arc"
 	IncludeDir = {}
 	IncludeDir["GLFW"] = "Arc/vendor/GLFW/include"
 	IncludeDir["Glad"] = "Arc/vendor/Glad/include"
+	IncludeDir["ImGui"] = "Arc/vendor/ImGui"
 
-	include "Arc/vendor/GLFW"
-	include "Arc/vendor/Glad"
+	group "Dependencies"
+		include "Arc/vendor/GLFW"
+		include "Arc/vendor/Glad"
+		include "Arc/vendor/imgui"
+	group ""
 
 project "Arc"
 	location "Arc"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-intermediates/" .. outputdir .. "/%{prj.name}")
@@ -38,19 +44,20 @@ project "Arc"
 		"Arc/vendor/spdlog/include",
 		"Arc/source",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
 		"Glad",
+		"ImGui",
 		"opengl32.lib"
 	}
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -62,28 +69,29 @@ project "Arc"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"
 		defines "ARC_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "ARC_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "ARC_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-intermediates/" .. outputdir .. "/%{prj.name}")
@@ -107,7 +115,6 @@ project "Sandbox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -117,15 +124,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "ARC_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "ARC_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "ARC_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"

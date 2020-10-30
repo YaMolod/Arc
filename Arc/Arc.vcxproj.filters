@@ -7,8 +7,14 @@
     <Filter Include="Arc\Events">
       <UniqueIdentifier>{FF09B244-EBC1-F391-54C9-CCED40A08E82}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Arc\ImGui">
+      <UniqueIdentifier>{E5FBD3F2-5166-8869-9AA4-390F064E66BE}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Arc\Platform">
       <UniqueIdentifier>{2F8D7A55-1BF0-09FA-C475-42B0B0B7D57C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Arc\Platform\OpenGL">
+      <UniqueIdentifier>{83ABECAC-EF0C-CABA-787A-106DE4DA007A}</UniqueIdentifier>
     </Filter>
     <Filter Include="Arc\Platform\Windows">
       <UniqueIdentifier>{69F69DA2-5585-276C-FEA3-3B67EA113812}</UniqueIdentifier>
@@ -37,6 +43,9 @@
     <ClInclude Include="source\Arc\Events\MouseEvent.h">
       <Filter>Arc\Events</Filter>
     </ClInclude>
+    <ClInclude Include="source\Arc\ImGui\ImGuiLayer.h">
+      <Filter>Arc\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="source\Arc\Layer.h">
       <Filter>Arc</Filter>
     </ClInclude>
@@ -46,6 +55,9 @@
     <ClInclude Include="source\Arc\Log.h">
       <Filter>Arc</Filter>
     </ClInclude>
+    <ClInclude Include="source\Arc\Platform\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Arc\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="source\Arc\Platform\Windows\WindowsWindow.h">
       <Filter>Arc\Platform\Windows</Filter>
     </ClInclude>
@@ -53,10 +65,17 @@
       <Filter>Arc</Filter>
     </ClInclude>
     <ClInclude Include="source\arcpch.h" />
+    <ClInclude Include="source\Arc\Input.h" />
+    <ClInclude Include="source\Arc\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="source\Arc\KeyCodes.h" />
+    <ClInclude Include="source\Arc\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Arc\Application.cpp">
       <Filter>Arc</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Arc\ImGui\ImGuiLayer.cpp">
+      <Filter>Arc\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="source\Arc\Layer.cpp">
       <Filter>Arc</Filter>
@@ -67,9 +86,13 @@
     <ClCompile Include="source\Arc\Log.cpp">
       <Filter>Arc</Filter>
     </ClCompile>
+    <ClCompile Include="source\Arc\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Arc\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="source\Arc\Platform\Windows\WindowsWindow.cpp">
       <Filter>Arc\Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="source\arcpch.cpp" />
+    <ClCompile Include="source\Arc\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
 </Project>
