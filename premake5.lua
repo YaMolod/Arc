@@ -14,6 +14,7 @@ workspace "Arc"
 	IncludeDir["GLFW"] = "Arc/vendor/GLFW/include"
 	IncludeDir["Glad"] = "Arc/vendor/Glad/include"
 	IncludeDir["ImGui"] = "Arc/vendor/ImGui"
+	IncludeDir["glm"] = "Arc/vendor/glm"
 
 	group "Dependencies"
 		include "Arc/vendor/GLFW"
@@ -36,7 +37,9 @@ project "Arc"
 	files
 	{
 		"Arc/source/**.h",
-		"Arc/source/**.cpp"
+		"Arc/source/**.cpp",
+		"Arc/vendor/glm/glm/**.hpp",
+		"Arc/vendor/glm/glm/**.inl"
 	}
 
 	includedirs
@@ -45,7 +48,8 @@ project "Arc"
 		"Arc/source",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -105,7 +109,9 @@ project "Sandbox"
 	includedirs
 	{
 		"Arc/vendor/spdlog/include",
-		"Arc/source"
+		"Arc/source",
+		"%{IncludeDir.glm}"
+
 	}
 
 	links 

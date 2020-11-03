@@ -20,7 +20,6 @@ public:
 			ARC::KeyPressedEvent& e = (ARC::KeyPressedEvent&)event;
 			ARC_TRACE("{0}", (char)e.GetKeyCode());
 		}
-		
 	}
 };
 
