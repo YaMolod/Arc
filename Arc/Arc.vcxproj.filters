@@ -90,9 +90,6 @@
     <ClInclude Include="source\Arc\MouseButtonCodes.h">
       <Filter>source\Arc</Filter>
     </ClInclude>
-    <ClInclude Include="source\Arc\Platform\OpenGL\ImGuiOpenGLRenderer.h">
-      <Filter>source\Arc\Platform\OpenGL</Filter>
-    </ClInclude>
     <ClInclude Include="source\Arc\Platform\Windows\WindowsInput.h">
       <Filter>source\Arc\Platform\Windows</Filter>
     </ClInclude>
@@ -1346,9 +1343,6 @@
     <ClCompile Include="source\Arc\Log.cpp">
       <Filter>source\Arc</Filter>
     </ClCompile>
-    <ClCompile Include="source\Arc\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
-      <Filter>source\Arc\Platform\OpenGL</Filter>
-    </ClCompile>
     <ClCompile Include="source\Arc\Platform\Windows\WindowsInput.cpp">
       <Filter>source\Arc\Platform\Windows</Filter>
     </ClCompile>
@@ -1358,5 +1352,6 @@
     <ClCompile Include="source\arcpch.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="source\Arc\ImGui\ImGuiBuild.cpp" />
   </ItemGroup>
 </Project>

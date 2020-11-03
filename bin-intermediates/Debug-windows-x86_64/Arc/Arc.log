@@ -1,1 +1,8 @@
-﻿  Arc.vcxproj -> C:\Engine\Arc\Arc\..\bin\Debug-windows-x86_64\Arc\Arc.dll
+﻿  ImGuiBuild.cpp
+C:\Engine\Arc\Arc\vendor\ImGui\backends\imgui_impl_opengl3.cpp(165,9): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Engine\Arc\Arc\vendor\ImGui\backends\imgui_impl_opengl3.cpp(196,5): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Engine\Arc\Arc\vendor\ImGui\backends\imgui_impl_opengl3.cpp(197,5): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Engine\Arc\Arc\vendor\ImGui\backends\imgui_impl_opengl3.cpp(535,5): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     Создается библиотека ..\bin\Debug-windows-x86_64\Arc\Arc.lib и объект ..\bin\Debug-windows-x86_64\Arc\Arc.exp
+LINK : warning LNK4098: библиотека по умолчанию "LIBCMT" конфликтует с использованием других библиотек; используйте /NODEFAULTLIB:library
+  Arc.vcxproj -> C:\Engine\Arc\Arc\..\bin\Debug-windows-x86_64\Arc\Arc.dll

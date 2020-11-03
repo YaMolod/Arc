@@ -164,7 +164,6 @@
     <ClInclude Include="source\Arc\LayerStack.h" />
     <ClInclude Include="source\Arc\Log.h" />
     <ClInclude Include="source\Arc\MouseButtonCodes.h" />
-    <ClInclude Include="source\Arc\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="source\Arc\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="source\Arc\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="source\Arc\Window.h" />
@@ -580,11 +579,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Arc\Application.cpp" />
+    <ClCompile Include="source\Arc\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="source\Arc\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="source\Arc\Layer.cpp" />
     <ClCompile Include="source\Arc\LayerStack.cpp" />
     <ClCompile Include="source\Arc\Log.cpp" />
-    <ClCompile Include="source\Arc\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="source\Arc\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="source\Arc\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="source\arcpch.cpp">

@@ -29,7 +29,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new TestLayer());
-		PushOverlay(new ARC::ImGuiLayer());
 	}
 	~Sandbox() {}
 };
