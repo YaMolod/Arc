@@ -16,9 +16,6 @@
     <Filter Include="source\Arc\Platform">
       <UniqueIdentifier>{8F76C682-FBD7-A390-8445-EA42F0A5DA4F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\Arc\Platform\OpenGL">
-      <UniqueIdentifier>{E348481B-CF58-F4EB-3812-590A2441E384}</UniqueIdentifier>
-    </Filter>
     <Filter Include="source\Arc\Platform\Windows">
       <UniqueIdentifier>{C93F6DDC-354D-9BC2-BE33-97AD2A406779}</UniqueIdentifier>
     </Filter>
@@ -1331,6 +1328,9 @@
     <ClCompile Include="source\Arc\Application.cpp">
       <Filter>source\Arc</Filter>
     </ClCompile>
+    <ClCompile Include="source\Arc\ImGui\ImGuiBuild.cpp">
+      <Filter>source\Arc\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="source\Arc\ImGui\ImGuiLayer.cpp">
       <Filter>source\Arc\ImGui</Filter>
     </ClCompile>
@@ -1352,6 +1352,5 @@
     <ClCompile Include="source\arcpch.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="source\Arc\ImGui\ImGuiBuild.cpp" />
   </ItemGroup>
 </Project>

@@ -1,1 +1,12 @@
-﻿  Sandbox.vcxproj -> C:\Engine\Arc\Sandbox\..\bin\Debug-windows-x86_64\Sandbox\Sandbox.exe
+﻿  main.cpp
+C:\Engine\Arc\Arc\source\Arc\Layer.h(23,26): warning C4251: ARC::Layer::m_DebugName: class "std::basic_string<char,std::char_traits<char>,std::allocator<char>>" должен иметь dll-интерфейс для использования клиентами class "ARC::Layer"
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\xstring(4564): message : см. объявление "std::basic_string<char,std::char_traits<char>,std::allocator<char>>"
+C:\Engine\Arc\Arc\source\Arc\LayerStack.h(25,31): warning C4251: ARC::LayerStack::m_Layers: class "std::vector<ARC::Layer *,std::allocator<ARC::Layer *>>" должен иметь dll-интерфейс для использования клиентами class "ARC::LayerStack"
+C:\Engine\Arc\Arc\source\Arc\LayerStack.h(22): message : см. объявление "std::vector<ARC::Layer *,std::allocator<ARC::Layer *>>"
+C:\Engine\Arc\Arc\source\Arc\Application.h(30,35): warning C4251: ARC::Application::m_Window: class "std::unique_ptr<ARC::Window,std::default_delete<ARC::Window>>" должен иметь dll-интерфейс для использования клиентами class "ARC::Application"
+C:\Engine\Arc\Arc\source\Arc\Application.h(30): message : см. объявление "std::unique_ptr<ARC::Window,std::default_delete<ARC::Window>>"
+C:\Engine\Arc\Arc\source\Arc\Log.h(18,54): warning C4251: ARC::Log::s_CoreLogger: class "std::shared_ptr<spdlog::logger>" должен иметь dll-интерфейс для использования клиентами class "ARC::Log"
+C:\Engine\Arc\Arc\vendor\spdlog\include\spdlog\details\registry.h(34): message : см. объявление "std::shared_ptr<spdlog::logger>"
+C:\Engine\Arc\Arc\source\Arc\Log.h(19,56): warning C4251: ARC::Log::s_ClientLogger: class "std::shared_ptr<spdlog::logger>" должен иметь dll-интерфейс для использования клиентами class "ARC::Log"
+C:\Engine\Arc\Arc\vendor\spdlog\include\spdlog\details\registry.h(34): message : см. объявление "std::shared_ptr<spdlog::logger>"
+  Sandbox.vcxproj -> C:\Engine\Arc\Sandbox\..\bin\Debug-windows-x86_64\Sandbox\Sandbox.exe
