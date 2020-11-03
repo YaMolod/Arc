@@ -19,14 +19,15 @@ workspace "Arc"
 	group "Dependencies"
 		include "Arc/vendor/GLFW"
 		include "Arc/vendor/Glad"
-		include "Arc/vendor/imgui"
+		include "Arc/vendor/ImGui"
 	group ""
 
 project "Arc"
 	location "Arc"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-intermediates/" .. outputdir .. "/%{prj.name}")
@@ -42,10 +43,16 @@ project "Arc"
 		"Arc/vendor/glm/glm/**.inl"
 	}
 
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
+	}
+
 	includedirs
 	{
 		"Arc/vendor/spdlog/include",
 		"Arc/source",
+		"Arc/vendor/imgui/backends",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
@@ -61,7 +68,6 @@ project "Arc"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
 		systemversion "latest"
 
 		defines
@@ -71,31 +77,27 @@ project "Arc"
 			"GLFW_INCLUDE_NONE"
 		}
 
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
-		}
-
 	filter "configurations:Debug"
 		defines "ARC_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "ARC_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "ARC_DIST"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
-	staticruntime "off"
+	cppdialect "C++17"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-intermediates/" .. outputdir .. "/%{prj.name}")
@@ -120,25 +122,24 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++17"
 		systemversion "latest"
 
 		defines
 		{
-		"ARC_PLATFORM_WINDOWS"
+			"ARC_PLATFORM_WINDOWS"
 		}
 
 	filter "configurations:Debug"
 		defines "ARC_DEBUG"
 		runtime "Debug"
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "ARC_RELEASE"
 		runtime "Release"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "ARC_DIST"
 		runtime "Release"
-		optimize "On"
+		optimize "on"

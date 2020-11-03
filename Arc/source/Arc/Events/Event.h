@@ -15,7 +15,7 @@ namespace ARC
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
-	enum  EventCategory
+	enum EventCategory
 	{
 		None = 0,
 		EventCategoryApplication = BIT(0),
