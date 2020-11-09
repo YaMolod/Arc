@@ -1323,6 +1323,9 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="source\Arc\Renderer\GraphicsContext.h" />
+    <ClInclude Include="source\Arc\Platform\OpenGL\OpenGlContext.h" />
+    <ClInclude Include="source\Arc\Renderer\Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Arc\Application.cpp">
@@ -1352,5 +1355,7 @@
     <ClCompile Include="source\arcpch.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="source\Arc\Platform\OpenGL\OpenGlContext.cpp" />
+    <ClCompile Include="source\Arc\Renderer\Shader.cpp" />
   </ItemGroup>
 </Project>

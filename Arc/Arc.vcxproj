@@ -155,8 +155,11 @@
     <ClInclude Include="source\Arc\LayerStack.h" />
     <ClInclude Include="source\Arc\Log.h" />
     <ClInclude Include="source\Arc\MouseButtonCodes.h" />
+    <ClInclude Include="source\Arc\Platform\OpenGL\OpenGlContext.h" />
     <ClInclude Include="source\Arc\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="source\Arc\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="source\Arc\Renderer\GraphicsContext.h" />
+    <ClInclude Include="source\Arc\Renderer\Shader.h" />
     <ClInclude Include="source\Arc\Window.h" />
     <ClInclude Include="source\arcpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -575,11 +578,13 @@
     <ClCompile Include="source\Arc\Layer.cpp" />
     <ClCompile Include="source\Arc\LayerStack.cpp" />
     <ClCompile Include="source\Arc\Log.cpp" />
+    <ClCompile Include="source\Arc\Platform\OpenGL\OpenGlContext.cpp" />
     <ClCompile Include="source\Arc\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="source\Arc\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="source\arcpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="source\Arc\Renderer\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

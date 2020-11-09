@@ -10,7 +10,7 @@ public:
 
 	void OnUpdate() override
 	{
-		ARC_INFO("TestLayer::Update");
+		//ARC_INFO("TestLayer::Update");
 	}
 
 	void OnEvent(ARC::Event& event) override
