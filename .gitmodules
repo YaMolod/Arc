@@ -5,8 +5,8 @@
 	path = Arc/vendor/GLFW
 	url = https://github.com/YaMolod/glfw
 [submodule "Arc\\vendor\\spdlog"]
-	path = Arc\\vendor\\spdlog
+	path = Arc/vendor/spdlog
 	url = https://github.com/YaMolod/spdlog
 [submodule "Arc\\vendor\\glm"]
-	path = Arc\\vendor\\glm
+	path = Arc/vendor/glm
 	url = https://github.com/YaMolod/glm
