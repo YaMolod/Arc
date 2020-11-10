@@ -1,10 +1,16 @@
-﻿  Application.cpp
+﻿  arcpch.cpp
+  Application.cpp
   ImGuiBuild.cpp
   ImGuiLayer.cpp
   Layer.cpp
   LayerStack.cpp
+  Log.cpp
+  OpenGLBuffer.cpp
   OpenGlContext.cpp
   WindowsInput.cpp
   WindowsWindow.cpp
+  Buffer.cpp
+  Renderer.cpp
+  Shader.cpp
   Создание кода...
   Arc.vcxproj -> C:\Engine\Arc\Arc\..\bin\Debug-windows-x86_64\Arc\Arc.lib
