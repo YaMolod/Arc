@@ -8,6 +8,7 @@
 #include "Window.h"
 
 #include "Arc/Renderer/Shader.h"
+#include "Arc/Renderer/Buffer.h"
 
 namespace ARC
 {
@@ -35,8 +36,12 @@ namespace ARC
 		LayerStack m_LayerStack;
 		static Application* s_Instance;
 
-		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		unsigned int m_VertexArray;
+
 		std::unique_ptr<Shader> m_Shader;
+		std::unique_ptr<VertexBuffer> m_VertexBuffer;
+		std::unique_ptr<IndexBuffer> m_IndexBuffer;
+
 	};
 
 	// defined in CLIENT

@@ -1,6 +1,5 @@
 #include "arcpch.h"
 
-#include "Arc/Log.h"
 #include "WindowsWindow.h"
 #include "Arc/Platform/OpenGL/OpenGlContext.h"
 

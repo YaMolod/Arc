@@ -1,6 +1,5 @@
 #include "arcpch.h"
 #include "OpenGlContext.h"
-#include "Arc/Log.h"
 
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
