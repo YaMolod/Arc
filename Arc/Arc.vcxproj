@@ -157,12 +157,14 @@
     <ClInclude Include="source\Arc\MouseButtonCodes.h" />
     <ClInclude Include="source\Arc\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="source\Arc\Platform\OpenGL\OpenGlContext.h" />
+    <ClInclude Include="source\Arc\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="source\Arc\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="source\Arc\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="source\Arc\Renderer\Buffer.h" />
     <ClInclude Include="source\Arc\Renderer\GraphicsContext.h" />
     <ClInclude Include="source\Arc\Renderer\Renderer.h" />
     <ClInclude Include="source\Arc\Renderer\Shader.h" />
+    <ClInclude Include="source\Arc\Renderer\VertexArray.h" />
     <ClInclude Include="source\Arc\Window.h" />
     <ClInclude Include="source\arcpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -583,6 +585,7 @@
     <ClCompile Include="source\Arc\Log.cpp" />
     <ClCompile Include="source\Arc\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="source\Arc\Platform\OpenGL\OpenGlContext.cpp" />
+    <ClCompile Include="source\Arc\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="source\Arc\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="source\Arc\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="source\Arc\Renderer\Buffer.cpp" />
@@ -591,6 +594,7 @@
     <ClCompile Include="source\arcpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="source\Arc\Renderer\VertexArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

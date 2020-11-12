@@ -33,17 +33,15 @@ namespace ARC
 		return 0;
 	}
 
-	struct BufferElements
+	struct BufferElement
 	{
 		ShaderDataType Type;
 		std::string Name;
 		uint32_t Size;
 		uint32_t Offset;
 		bool Normalized;
-
-		BufferElements() {}
-
-		BufferElements(ShaderDataType type, const std::string& name, bool normalized = false)
+		
+		BufferElement(ShaderDataType type, const std::string& name, bool normalized = false)
 			: Type(type), Name(name), Size(ShaderDataTypeSize(type)), Offset(0), Normalized(normalized)
 		{
 		}
@@ -76,19 +74,19 @@ namespace ARC
 	public:
 		BufferLayout() {}
 
-		BufferLayout(const std::initializer_list<BufferElements>& elements)
+		BufferLayout(const std::initializer_list<BufferElement>& elements)
 			: m_Elements(elements)
 		{
 			CalculateOffsetAndStride();
 		}
 
 		inline uint32_t GetStride() const { return m_Stride; }
-		inline const std::vector<BufferElements>& GetElements() const { return m_Elements; }
+		inline const std::vector<BufferElement>& GetElements() const { return m_Elements; }
 
-		std::vector<BufferElements>::iterator begin() { return m_Elements.begin(); }
-		std::vector<BufferElements>::iterator end() { return m_Elements.end(); }
-		std::vector<BufferElements>::const_iterator begin() const { return m_Elements.begin(); }
-		std::vector<BufferElements>::const_iterator end() const { return m_Elements.end(); }
+		std::vector<BufferElement>::iterator begin() { return m_Elements.begin(); }
+		std::vector<BufferElement>::iterator end() { return m_Elements.end(); }
+		std::vector<BufferElement>::const_iterator begin() const { return m_Elements.begin(); }
+		std::vector<BufferElement>::const_iterator end() const { return m_Elements.end(); }
 	private:
 		void CalculateOffsetAndStride()
 		{
@@ -102,7 +100,7 @@ namespace ARC
 			}
 		}
 	private:
-		std::vector<BufferElements> m_Elements;
+		std::vector<BufferElement> m_Elements;
 		uint32_t m_Stride = 0;
 	};
 

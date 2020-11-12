@@ -1,8 +1,5 @@
-﻿  Application.cpp
-C:\Engine\Arc\Arc\source\Arc\Application.cpp(73,52): warning C4312: приведение типов: преобразование из "const uint32_t" в "const void *" большего размера
-  ImGuiLayer.cpp
-  OpenGLBuffer.cpp
-  WindowsInput.cpp
-  Buffer.cpp
+﻿  OpenGLVertexArray.cpp
+C:\Engine\Arc\Arc\source\Arc\Platform\OpenGL\OpenGLVertexArray.cpp(64,52): warning C4312: приведение типов: преобразование из "const uint32_t" в "const void *" большего размера
+  VertexArray.cpp
   Создание кода...
   Arc.vcxproj -> C:\Engine\Arc\Arc\..\bin\Debug-windows-x86_64\Arc\Arc.lib
