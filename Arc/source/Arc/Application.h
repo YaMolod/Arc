@@ -10,6 +10,7 @@
 #include "Arc/Renderer/Shader.h"
 #include "Arc/Renderer/Buffer.h"
 #include "Arc/Renderer/VertexArray.h"
+#include "Arc/Renderer/Renderer.h"
 
 namespace ARC
 {
@@ -41,7 +42,7 @@ namespace ARC
 		std::shared_ptr<VertexArray> m_VertexArray;
 		
 		std::shared_ptr<VertexArray> m_SquareVA;
-		std::shared_ptr<Shader> m_Shader2;
+		std::shared_ptr<Shader> m_SquareShader;
 
 	};
 

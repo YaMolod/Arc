@@ -12,8 +12,8 @@ namespace ARC
 	{
 		switch (Renderer::GetAPI())
 		{
-		case RendererAPI::NONE:		ARC_CORE_ASSERT(false, "RendererAPI::NONE is not supported!"); return nullptr;
-		case RendererAPI::OpenGL:	return new OpenGLVertexBuffer(vertices, size);
+		case RendererAPI::API::NONE:		ARC_CORE_ASSERT(false, "RendererAPI::NONE is not supported!"); return nullptr;
+		case RendererAPI::API::OpenGL:		return new OpenGLVertexBuffer(vertices, size);
 		}
 
 		ARC_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -24,8 +24,8 @@ namespace ARC
 	{
 		switch (Renderer::GetAPI())
 		{
-		case RendererAPI::NONE:		ARC_CORE_ASSERT(false, "RendererAPI::NONE is not supported!"); return nullptr;
-		case RendererAPI::OpenGL:	return new OpenGLIndexBuffer(indices, size);
+		case RendererAPI::API::NONE:		ARC_CORE_ASSERT(false, "RendererAPI::NONE is not supported!"); return nullptr;
+		case RendererAPI::API::OpenGL:		return new OpenGLIndexBuffer(indices, size);
 		}
 
 		ARC_CORE_ASSERT(false, "Unknown RendererAPI!");

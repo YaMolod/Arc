@@ -3,8 +3,6 @@
 
 #include "Arc/Input.h"
 
-#include "glad/glad.h"
-
 namespace ARC
 {
 
@@ -41,7 +39,7 @@ namespace ARC
 				{ ShaderDataType::Float4, "a_Color"}
 			});
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
-		
+	
 		uint32_t indices[3] = { 0, 1, 2 };
 
 		std::shared_ptr<IndexBuffer> indexBuffer;
@@ -107,7 +105,7 @@ namespace ARC
 		squareIB.reset(IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
-		std::string vertexSrc2 = R"(
+		std::string vertexSquareSrc = R"(
 			#version 330 core
 
 			layout(location = 0) in vec3 a_Position;
@@ -121,7 +119,7 @@ namespace ARC
 			}
 		)";
 
-		std::string fragmentSrc2 = R"(
+		std::string fragmentSquareSrc = R"(
 			#version 330 core
 
 			layout(location = 0) out vec4 color;
@@ -134,7 +132,7 @@ namespace ARC
 			}
 		)";
 
-		m_Shader2.reset(new Shader(vertexSrc2, fragmentSrc2));
+		m_SquareShader.reset(new Shader(vertexSquareSrc, fragmentSquareSrc));
 	}
 
 	Application::~Application()
@@ -176,16 +174,14 @@ namespace ARC
 	{
 		while (m_Running)
 		{
-			glClearColor(0.2f, 0.2f, 0.2f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
+			RenderCommand::SetClearColor({ 0.2f, 0.2f, 0.2f, 1 });
+			RenderCommand::Clear();
 
-			m_Shader2->Bind();
-			m_SquareVA->Bind();
-			glDrawElements(GL_TRIANGLES, m_SquareVA->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
-
+			m_SquareShader->Bind();
+			Renderer::Submit(m_SquareVA);
+			
 			m_Shader->Bind();
-			m_VertexArray->Bind();
-			glDrawElements(GL_TRIANGLES, m_VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
+			Renderer::Submit(m_VertexArray);
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
