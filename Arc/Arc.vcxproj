@@ -163,6 +163,7 @@
     <ClInclude Include="source\Arc\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="source\Arc\Renderer\Buffer.h" />
     <ClInclude Include="source\Arc\Renderer\GraphicsContext.h" />
+    <ClInclude Include="source\Arc\Renderer\OrthographicCamera.h" />
     <ClInclude Include="source\Arc\Renderer\RenderCommand.h" />
     <ClInclude Include="source\Arc\Renderer\Renderer.h" />
     <ClInclude Include="source\Arc\Renderer\RendererAPI.h" />
@@ -593,6 +594,7 @@
     <ClCompile Include="source\Arc\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="source\Arc\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="source\Arc\Renderer\Buffer.cpp" />
+    <ClCompile Include="source\Arc\Renderer\OrthographicCamera.cpp" />
     <ClCompile Include="source\Arc\Renderer\RenderCommand.cpp" />
     <ClCompile Include="source\Arc\Renderer\Renderer.cpp" />
     <ClCompile Include="source\Arc\Renderer\RendererAPI.cpp" />

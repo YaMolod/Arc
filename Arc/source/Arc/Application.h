@@ -11,6 +11,7 @@
 #include "Arc/Renderer/Buffer.h"
 #include "Arc/Renderer/VertexArray.h"
 #include "Arc/Renderer/Renderer.h"
+#include "Arc/Renderer/OrthographicCamera.h"
 
 namespace ARC
 {
@@ -44,6 +45,7 @@ namespace ARC
 		std::shared_ptr<VertexArray> m_SquareVA;
 		std::shared_ptr<Shader> m_SquareShader;
 
+		OrthographicCamera m_Camera;
 	};
 
 	// defined in CLIENT
