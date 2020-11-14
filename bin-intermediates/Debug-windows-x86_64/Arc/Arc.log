@@ -1,2 +1,8 @@
 ﻿  Application.cpp
+  ImGuiLayer.cpp
+  Layer.cpp
+  LayerStack.cpp
+  WindowsInput.cpp
+  WindowsWindow.cpp
+  Создание кода...
   Arc.vcxproj -> C:\Engine\Arc\Arc\..\bin\Debug-windows-x86_64\Arc\Arc.lib

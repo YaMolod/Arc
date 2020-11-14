@@ -44,7 +44,7 @@ namespace ARC
 		{
 			return GetCategoryFlags() & category;
 		}
-
+	
 		bool Handled = false;
 	};
 

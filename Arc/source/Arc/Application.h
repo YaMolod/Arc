@@ -38,14 +38,6 @@ namespace ARC
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 		static Application* s_Instance;
-
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
-		
-		std::shared_ptr<VertexArray> m_SquareVA;
-		std::shared_ptr<Shader> m_SquareShader;
-
-		OrthographicCamera m_Camera;
 	};
 
 	// defined in CLIENT
