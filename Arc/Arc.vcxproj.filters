@@ -1353,6 +1353,7 @@
     <ClInclude Include="source\Arc\Renderer\RenderCommand.h" />
     <ClInclude Include="source\Arc\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="source\Arc\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="source\Arc\Core\Timestep.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Arc\Application.cpp">

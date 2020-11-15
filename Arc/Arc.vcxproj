@@ -143,6 +143,7 @@
     <ClInclude Include="source\Arc.h" />
     <ClInclude Include="source\Arc\Application.h" />
     <ClInclude Include="source\Arc\Core.h" />
+    <ClInclude Include="source\Arc\Core\Timestep.h" />
     <ClInclude Include="source\Arc\EntryPointh.h" />
     <ClInclude Include="source\Arc\Events\ApplicationEvent.h" />
     <ClInclude Include="source\Arc\Events\Event.h" />

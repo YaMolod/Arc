@@ -7,6 +7,8 @@
 #include "Arc/Log.h"
 #include "Arc/Layer.h"
 
+#include "Arc/Core/Timestep.h"
+
 #include "Arc/Input.h"
 #include "Arc/KeyCodes.h"
 #include "Arc/MouseButtonCodes.h"

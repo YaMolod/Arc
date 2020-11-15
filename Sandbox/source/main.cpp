@@ -39,6 +39,7 @@ public:
 			layout(location = 1) in vec4 a_Color;
 
 			uniform mat4 u_ViewProjection;
+			uniform mat4 u_Transform;
 			
 			out vec3 v_Position;
 			out vec4 v_Color;
@@ -47,7 +48,7 @@ public:
 			{
 				v_Position = a_Position;
 				v_Color = a_Color;
-				gl_Position = u_ViewProjection * vec4(a_Position, 1.0f);
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0f);
 			}
 		)";
 
@@ -70,10 +71,10 @@ public:
 
 		float square[3 * 4] =
 		{
-			 -0.75f, -0.75f, 0.0f,
-			  0.75f, -0.75f, 0.0f,
-			  0.75f,  0.75f, 0.0f,
-			 -0.75f,  0.75f, 0.0f
+			 -0.5f, -0.5f, 0.0f,
+			  0.5f, -0.5f, 0.0f,
+			  0.5f,  0.5f, 0.0f,
+			 -0.5f,  0.5f, 0.0f
 
 		};
 
@@ -99,13 +100,14 @@ public:
 			layout(location = 0) in vec3 a_Position;
 
 			uniform mat4 u_ViewProjection;
-			
+			uniform mat4 u_Transform;
+
 			out vec3 v_Position;
 			
 			void main()
 			{
 				v_Position = a_Position;
-				gl_Position = u_ViewProjection * vec4(a_Position, 1.0f);
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0f);
 			}
 		)";
 
@@ -125,22 +127,22 @@ public:
 		m_SquareShader.reset(new ARC::Shader(vertexSquareSrc, fragmentSquareSrc));
 	}
 
-	void OnUpdate() override
+	void OnUpdate(ARC::Timestep ts) override
 	{
 		if (ARC::Input::IskeyPressed(ARC_KEY_LEFT))
-			m_CameraPosition.x -= m_CameraMoveSpeed;
+			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
 		else if (ARC::Input::IskeyPressed(ARC_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraMoveSpeed;
+			m_CameraPosition.x += m_CameraMoveSpeed * ts;
 
 		if (ARC::Input::IskeyPressed(ARC_KEY_UP))
-			m_CameraPosition.y += m_CameraMoveSpeed;
+			m_CameraPosition.y += m_CameraMoveSpeed * ts;
 		else if (ARC::Input::IskeyPressed(ARC_KEY_DOWN))
-			m_CameraPosition.y -= m_CameraMoveSpeed;
+			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
 
-		if (ARC::Input::IskeyPressed(ARC_KEY_A))
-			m_CameraRotation += m_CameraRotationSpeed;
-		if (ARC::Input::IskeyPressed(ARC_KEY_D))
-			m_CameraRotation -= m_CameraRotationSpeed;
+		if (ARC::Input::IskeyPressed(ARC_KEY_Q))
+			m_CameraRotation += m_CameraRotationSpeed * ts;
+		else if (ARC::Input::IskeyPressed(ARC_KEY_E))
+			m_CameraRotation -= m_CameraRotationSpeed * ts;
 
 		ARC::RenderCommand::SetClearColor({ 0.2f, 0.2f, 0.2f, 1 });
 		ARC::RenderCommand::Clear();
@@ -150,8 +152,19 @@ public:
 
 		ARC::Renderer::BeginScene(m_Camera);
 
-		ARC::Renderer::Submit(m_SquareShader, m_SquareVA);
-		ARC::Renderer::Submit(m_Shader, m_VertexArray);
+		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
+
+		for (int y = 0; y < 20; y++) 
+		{
+
+			for (int x = 0; x < 20; x++)
+			{
+				glm::vec3 position(x * 0.11f, y * 0.11f, 0.0f);
+				glm::mat4 transform = glm::translate(glm::mat4(1.0f), position) * scale;
+				ARC::Renderer::Submit(m_SquareShader, m_SquareVA, transform);
+			}
+		}
+		//ARC::Renderer::Submit(m_Shader, m_VertexArray);
 
 		ARC::Renderer::EndScene();
 
@@ -172,11 +185,10 @@ private:
 
 	ARC::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
-	float m_CameraMoveSpeed = 0.1f;
+	float m_CameraMoveSpeed = 5.0f;
 
 	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 0.8f;
-
+	float m_CameraRotationSpeed = 180.0f;
 };
 
 class Sandbox : public ARC::Application

@@ -7,6 +7,8 @@
 #include "Core.h"
 #include "Window.h"
 
+#include "Arc/Core/Timestep.h"
+
 #include "Arc/Renderer/Shader.h"
 #include "Arc/Renderer/Buffer.h"
 #include "Arc/Renderer/VertexArray.h"
@@ -30,14 +32,18 @@ namespace ARC
 
 		inline static Application& Get() { return *s_Instance; }
 		inline Window& GetWindow() { return *m_Window; }
+	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 	private:
-
-		std::unique_ptr<Window> m_Window;
-		ImGuiLayer* m_ImGuiLayer;
-		bool m_Running = true;
-		LayerStack m_LayerStack;
 		static Application* s_Instance;
+
+		bool m_Running = true;
+		std::unique_ptr<Window> m_Window;
+
+		ImGuiLayer* m_ImGuiLayer;
+		LayerStack m_LayerStack;
+
+		float m_LastFrameTime = 0.0f;
 	};
 
 	// defined in CLIENT
