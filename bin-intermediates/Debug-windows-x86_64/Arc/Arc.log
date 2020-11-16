@@ -1,8 +1,5 @@
 ﻿  Application.cpp
   ImGuiLayer.cpp
   WindowsInput.cpp
-  Buffer.cpp
-  Renderer.cpp
-  VertexArray.cpp
   Создание кода...
   Arc.vcxproj -> C:\Engine\Arc\Arc\..\bin\Debug-windows-x86_64\Arc\Arc.lib

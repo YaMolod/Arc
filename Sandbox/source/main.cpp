@@ -1,5 +1,9 @@
 #include "Arc.h"
 
+#include "Arc/Platform/OpenGL/OpenGLShader.h"
+
+#include "imgui.h"
+
 class TestLayer : public ARC::Layer
 {
 public:
@@ -46,7 +50,6 @@ public:
 			
 			void main()
 			{
-				v_Position = a_Position;
 				v_Color = a_Color;
 				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0f);
 			}
@@ -57,17 +60,15 @@ public:
 
 			layout(location = 0) out vec4 color;
 
-			in vec3 v_Position;
 			in vec4 v_Color;
 
 			void main()
 			{
-				color = vec4(v_Position * 0.5 + 0.5, 1.0f);
 				color = v_Color;
 			}
 		)";
 
-		m_Shader.reset(new ARC::Shader(vertexSrc, fragmentSrc));
+		m_Shader.reset(ARC::Shader::Create(vertexSrc, fragmentSrc));
 
 		float square[3 * 4] =
 		{
@@ -101,12 +102,9 @@ public:
 
 			uniform mat4 u_ViewProjection;
 			uniform mat4 u_Transform;
-
-			out vec3 v_Position;
 			
 			void main()
 			{
-				v_Position = a_Position;
 				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0f);
 			}
 		)";
@@ -116,15 +114,15 @@ public:
 
 			layout(location = 0) out vec4 color;
 
-			in vec3 v_Position;
-
+			uniform vec3 u_Color;
+			
 			void main()
 			{
-				color = vec4(0.4f, 0.2f, 0.6f, 1.0f);
+				color = vec4(u_Color, 1.0f);
 			}
 		)";
 
-		m_SquareShader.reset(new ARC::Shader(vertexSquareSrc, fragmentSquareSrc));
+		m_SquareShader.reset(ARC::Shader::Create(vertexSquareSrc, fragmentSquareSrc));
 	}
 
 	void OnUpdate(ARC::Timestep ts) override
@@ -154,6 +152,9 @@ public:
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
+		std::dynamic_pointer_cast<ARC::OpenGLShader>(m_SquareShader)->Bind();
+		std::dynamic_pointer_cast<ARC::OpenGLShader>(m_SquareShader)->UploadUniformFloat3("u_Color", m_SquareColor);
+
 		for (int y = 0; y < 20; y++) 
 		{
 
@@ -161,6 +162,7 @@ public:
 			{
 				glm::vec3 position(x * 0.11f, y * 0.11f, 0.0f);
 				glm::mat4 transform = glm::translate(glm::mat4(1.0f), position) * scale;
+				
 				ARC::Renderer::Submit(m_SquareShader, m_SquareVA, transform);
 			}
 		}
@@ -170,7 +172,14 @@ public:
 
 	}
 
-	void OnEvent(ARC::Event& event) override
+	virtual void OnImGuiRender() override
+	{
+		ImGui::Begin("Settings");
+		ImGui::ColorEdit3("Square Color", glm::value_ptr(m_SquareColor));
+		ImGui::End();
+	}
+
+	virtual void OnEvent(ARC::Event& event) override
 	{
 		
 	}
@@ -189,6 +198,8 @@ private:
 
 	float m_CameraRotation = 0.0f;
 	float m_CameraRotationSpeed = 180.0f;
+
+	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };
 
 class Sandbox : public ARC::Application

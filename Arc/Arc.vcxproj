@@ -157,9 +157,10 @@
     <ClInclude Include="source\Arc\Log.h" />
     <ClInclude Include="source\Arc\MouseButtonCodes.h" />
     <ClInclude Include="source\Arc\Platform\OpenGL\OpenGLBuffer.h" />
-    <ClInclude Include="source\Arc\Platform\OpenGL\OpenGlContext.h" />
     <ClInclude Include="source\Arc\Platform\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="source\Arc\Platform\OpenGL\OpenGLShader.h" />
     <ClInclude Include="source\Arc\Platform\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="source\Arc\Platform\OpenGL\OpenGlContext.h" />
     <ClInclude Include="source\Arc\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="source\Arc\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="source\Arc\Renderer\Buffer.h" />
@@ -589,9 +590,10 @@
     <ClCompile Include="source\Arc\LayerStack.cpp" />
     <ClCompile Include="source\Arc\Log.cpp" />
     <ClCompile Include="source\Arc\Platform\OpenGL\OpenGLBuffer.cpp" />
-    <ClCompile Include="source\Arc\Platform\OpenGL\OpenGlContext.cpp" />
-    <ClCompile Include="source\Arc\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="source\Arc\Platform\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="source\Arc\Platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="source\Arc\Platform\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="source\Arc\Platform\OpenGL\OpenGlContext.cpp" />
     <ClCompile Include="source\Arc\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="source\Arc\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="source\Arc\Renderer\Buffer.cpp" />
@@ -600,10 +602,10 @@
     <ClCompile Include="source\Arc\Renderer\Renderer.cpp" />
     <ClCompile Include="source\Arc\Renderer\RendererAPI.cpp" />
     <ClCompile Include="source\Arc\Renderer\Shader.cpp" />
+    <ClCompile Include="source\Arc\Renderer\VertexArray.cpp" />
     <ClCompile Include="source\arcpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="source\Arc\Renderer\VertexArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

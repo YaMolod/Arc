@@ -112,8 +112,8 @@ project "Sandbox"
 	{
 		"Arc/vendor/spdlog/include",
 		"Arc/source",
-		"%{IncludeDir.glm}"
-
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links 

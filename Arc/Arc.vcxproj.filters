@@ -7,6 +7,9 @@
     <Filter Include="source\Arc">
       <UniqueIdentifier>{DBB314B8-C76B-5605-3073-2F611C4AF1F5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\Arc\Core">
+      <UniqueIdentifier>{13794F72-7F04-BD36-8815-402BF41F1937}</UniqueIdentifier>
+    </Filter>
     <Filter Include="source\Arc\Events">
       <UniqueIdentifier>{5F1B3449-CB31-32DF-14A9-BD0080FE0267}</UniqueIdentifier>
     </Filter>
@@ -57,6 +60,9 @@
     <ClInclude Include="source\Arc\Core.h">
       <Filter>source\Arc</Filter>
     </ClInclude>
+    <ClInclude Include="source\Arc\Core\Timestep.h">
+      <Filter>source\Arc\Core</Filter>
+    </ClInclude>
     <ClInclude Include="source\Arc\EntryPointh.h">
       <Filter>source\Arc</Filter>
     </ClInclude>
@@ -96,6 +102,15 @@
     <ClInclude Include="source\Arc\Platform\OpenGL\OpenGLBuffer.h">
       <Filter>source\Arc\Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="source\Arc\Platform\OpenGL\OpenGLRendererAPI.h">
+      <Filter>source\Arc\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Arc\Platform\OpenGL\OpenGLShader.h">
+      <Filter>source\Arc\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Arc\Platform\OpenGL\OpenGLVertexArray.h">
+      <Filter>source\Arc\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="source\Arc\Platform\OpenGL\OpenGlContext.h">
       <Filter>source\Arc\Platform\OpenGL</Filter>
     </ClInclude>
@@ -111,10 +126,22 @@
     <ClInclude Include="source\Arc\Renderer\GraphicsContext.h">
       <Filter>source\Arc\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="source\Arc\Renderer\OrthographicCamera.h">
+      <Filter>source\Arc\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Arc\Renderer\RenderCommand.h">
+      <Filter>source\Arc\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="source\Arc\Renderer\Renderer.h">
       <Filter>source\Arc\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="source\Arc\Renderer\RendererAPI.h">
+      <Filter>source\Arc\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="source\Arc\Renderer\Shader.h">
+      <Filter>source\Arc\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Arc\Renderer\VertexArray.h">
       <Filter>source\Arc\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="source\Arc\Window.h">
@@ -1347,13 +1374,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="source\Arc\Renderer\VertexArray.h" />
-    <ClInclude Include="source\Arc\Platform\OpenGL\OpenGLVertexArray.h" />
-    <ClInclude Include="source\Arc\Renderer\RendererAPI.h" />
-    <ClInclude Include="source\Arc\Renderer\RenderCommand.h" />
-    <ClInclude Include="source\Arc\Platform\OpenGL\OpenGLRendererAPI.h" />
-    <ClInclude Include="source\Arc\Renderer\OrthographicCamera.h" />
-    <ClInclude Include="source\Arc\Core\Timestep.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Arc\Application.cpp">
@@ -1377,6 +1397,15 @@
     <ClCompile Include="source\Arc\Platform\OpenGL\OpenGLBuffer.cpp">
       <Filter>source\Arc\Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="source\Arc\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>source\Arc\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Arc\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>source\Arc\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Arc\Platform\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>source\Arc\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="source\Arc\Platform\OpenGL\OpenGlContext.cpp">
       <Filter>source\Arc\Platform\OpenGL</Filter>
     </ClCompile>
@@ -1389,20 +1418,26 @@
     <ClCompile Include="source\Arc\Renderer\Buffer.cpp">
       <Filter>source\Arc\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="source\Arc\Renderer\OrthographicCamera.cpp">
+      <Filter>source\Arc\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Arc\Renderer\RenderCommand.cpp">
+      <Filter>source\Arc\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="source\Arc\Renderer\Renderer.cpp">
+      <Filter>source\Arc\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Arc\Renderer\RendererAPI.cpp">
       <Filter>source\Arc\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="source\Arc\Renderer\Shader.cpp">
       <Filter>source\Arc\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="source\Arc\Renderer\VertexArray.cpp">
+      <Filter>source\Arc\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="source\arcpch.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="source\Arc\Renderer\VertexArray.cpp" />
-    <ClCompile Include="source\Arc\Platform\OpenGL\OpenGLVertexArray.cpp" />
-    <ClCompile Include="source\Arc\Renderer\RendererAPI.cpp" />
-    <ClCompile Include="source\Arc\Renderer\RenderCommand.cpp" />
-    <ClCompile Include="source\Arc\Platform\OpenGL\OpenGLRendererAPI.cpp" />
-    <ClCompile Include="source\Arc\Renderer\OrthographicCamera.cpp" />
   </ItemGroup>
 </Project>
