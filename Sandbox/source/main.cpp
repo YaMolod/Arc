@@ -20,7 +20,7 @@ public:
 			  0.0f,  0.5f, 0.0f, 0.6f, 0.3f, 1.0f, 1.0f
 		};
 
-		std::shared_ptr<ARC::VertexBuffer> vertexBuffer;
+		ARC::Ref<ARC::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(ARC::VertexBuffer::Create(vertices, sizeof(vertices)));
 
 		vertexBuffer->SetLayout(
@@ -32,7 +32,7 @@ public:
 
 		uint32_t indices[3] = { 0, 1, 2 };
 
-		std::shared_ptr<ARC::IndexBuffer> indexBuffer;
+		ARC::Ref<ARC::IndexBuffer> indexBuffer;
 		indexBuffer.reset(ARC::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
@@ -70,28 +70,29 @@ public:
 
 		m_Shader.reset(ARC::Shader::Create(vertexSrc, fragmentSrc));
 
-		float square[3 * 4] =
+		float square[5 * 4] =
 		{
-			 -0.5f, -0.5f, 0.0f,
-			  0.5f, -0.5f, 0.0f,
-			  0.5f,  0.5f, 0.0f,
-			 -0.5f,  0.5f, 0.0f
+			 -0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+			  0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+			  0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+			 -0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 
 		};
 
 		m_SquareVA.reset(ARC::VertexArray::Create());
-		std::shared_ptr<ARC::VertexBuffer> squareVB;
+		ARC::Ref<ARC::VertexBuffer> squareVB;
 		squareVB.reset(ARC::VertexBuffer::Create(square, sizeof(square)));
 
 		squareVB->SetLayout(
 			{
-				{ ARC::ShaderDataType::Float3, "a_Position"}
+				{ ARC::ShaderDataType::Float3, "a_Position"},
+				{ ARC::ShaderDataType::Float2, "a_TexCoord"}
 			});
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
 
-		std::shared_ptr<ARC::IndexBuffer> squareIB;
+		ARC::Ref<ARC::IndexBuffer> squareIB;
 		squareIB.reset(ARC::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
@@ -123,6 +124,47 @@ public:
 		)";
 
 		m_SquareShader.reset(ARC::Shader::Create(vertexSquareSrc, fragmentSquareSrc));
+
+		std::string vertexTextureSrc = R"(
+			#version 330 core
+
+			layout(location = 0) in vec3 a_Position;
+			layout(location = 1) in vec2 a_TextureCoord;
+
+			uniform mat4 u_ViewProjection;
+			uniform mat4 u_Transform;
+			
+			out vec2 v_TextureCoord;
+
+			void main()
+			{
+				v_TextureCoord = a_TextureCoord;
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0f);
+			}
+		)";
+
+		std::string fragmentTextureSrc = R"(
+			#version 330 core
+
+			layout(location = 0) out vec4 color;
+
+			in vec2 v_TextureCoord;
+
+			uniform sampler2D u_Texture;
+			
+			void main()
+			{
+				color = texture(u_Texture, v_TextureCoord);
+			}
+		)";
+
+		m_TextureShader.reset(ARC::Shader::Create(vertexTextureSrc, fragmentTextureSrc));
+		
+		m_Texture = ARC::Texture2D::Create("assets/textures/shrek_PNG2.png");
+
+		std::dynamic_pointer_cast<ARC::OpenGLShader>(m_TextureShader)->Bind();
+		std::dynamic_pointer_cast<ARC::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+
 	}
 
 	void OnUpdate(ARC::Timestep ts) override
@@ -166,6 +208,10 @@ public:
 				ARC::Renderer::Submit(m_SquareShader, m_SquareVA, transform);
 			}
 		}
+
+		m_Texture->Bind();
+
+		ARC::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 		//ARC::Renderer::Submit(m_Shader, m_VertexArray);
 
 		ARC::Renderer::EndScene();
@@ -186,11 +232,13 @@ public:
 
 private:
 
-	std::shared_ptr<ARC::Shader> m_Shader;
-	std::shared_ptr<ARC::VertexArray> m_VertexArray;
+	ARC::Ref<ARC::Shader> m_Shader;
+	ARC::Ref<ARC::VertexArray> m_VertexArray;
 
-	std::shared_ptr<ARC::VertexArray> m_SquareVA;
-	std::shared_ptr<ARC::Shader> m_SquareShader;
+	ARC::Ref<ARC::VertexArray> m_SquareVA;
+	ARC::Ref<ARC::Shader> m_SquareShader, m_TextureShader;
+
+	ARC::Ref<ARC::Texture2D> m_Texture;
 
 	ARC::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;

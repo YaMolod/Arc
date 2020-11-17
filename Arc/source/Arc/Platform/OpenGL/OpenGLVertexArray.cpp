@@ -47,7 +47,7 @@ namespace ARC
 		glBindVertexArray(0);
 	}
 
-	void ARC::OpenGLVertexArray::AddVertexBuffer(const std::shared_ptr<VertexBuffer>& vertexBuffer) 
+	void ARC::OpenGLVertexArray::AddVertexBuffer(const Ref<VertexBuffer>& vertexBuffer) 
 	{
 		ARC_CORE_ASSERT(vertexBuffer->GetLayout().GetElements().size(), "Vertex Buffer has no layout!");
 		
@@ -68,7 +68,7 @@ namespace ARC
 		m_VertexBuffers.push_back(vertexBuffer);
 	}
 
-	void ARC::OpenGLVertexArray::SetIndexBuffer(const std::shared_ptr<IndexBuffer>& indexBuffer) 
+	void ARC::OpenGLVertexArray::SetIndexBuffer(const Ref<IndexBuffer>& indexBuffer) 
 	{
 		glBindVertexArray(m_RendererID);
 		indexBuffer->Bind();

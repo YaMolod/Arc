@@ -15,6 +15,7 @@ workspace "Arc"
 	IncludeDir["Glad"] = "Arc/vendor/Glad/include"
 	IncludeDir["ImGui"] = "Arc/vendor/ImGui"
 	IncludeDir["glm"] = "Arc/vendor/glm"
+	IncludeDir["stb_image"] = "Arc/vendor/stb_image"
 
 	group "Dependencies"
 		include "Arc/vendor/GLFW"
@@ -39,6 +40,8 @@ project "Arc"
 	{
 		"Arc/source/**.h",
 		"Arc/source/**.cpp",
+		"Arc/vendor/stb_image/**.h",
+		"Arc/vendor/stb_image/**.cpp",
 		"Arc/vendor/glm/glm/**.hpp",
 		"Arc/vendor/glm/glm/**.inl"
 	}
@@ -56,6 +59,7 @@ project "Arc"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.stb_image}",
 		"%{IncludeDir.glm}"
 	}
 
