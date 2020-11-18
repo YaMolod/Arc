@@ -38,12 +38,12 @@ project "Arc"
 
 	files
 	{
-		"Arc/source/**.h",
-		"Arc/source/**.cpp",
-		"Arc/vendor/stb_image/**.h",
-		"Arc/vendor/stb_image/**.cpp",
-		"Arc/vendor/glm/glm/**.hpp",
-		"Arc/vendor/glm/glm/**.inl"
+		"%{prj.name}/source/**.h",
+		"%{prj.name}/source/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	defines
@@ -53,9 +53,9 @@ project "Arc"
 
 	includedirs
 	{
-		"Arc/vendor/spdlog/include",
-		"Arc/source",
-		"Arc/vendor/imgui/backends",
+		"%{prj.name}/vendor/spdlog/include",
+		"%{prj.name}/source",
+		"%{prj.name}/vendor/imgui/backends",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
@@ -108,8 +108,8 @@ project "Sandbox"
 
 	files
 	{
-		"Sandbox/source/**.h",
-		"Sandbox/source/**.cpp"
+		"%{prj.name}/source/**.h",
+		"%{prj.name}/source/**.cpp"
 	}
 
 	includedirs

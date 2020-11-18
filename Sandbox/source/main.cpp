@@ -160,9 +160,10 @@ public:
 
 		m_TextureShader.reset(ARC::Shader::Create(vertexTextureSrc, fragmentTextureSrc));
 		
-		m_Texture = ARC::Texture2D::Create("assets/textures/shrek_PNG2.png");
+		m_Texture = ARC::Texture2D::Create("assets/textures/Checkerboard.jpg");
+		m_ShrekTexture = ARC::Texture2D::Create("assets/textures/shrek_PNG2.png");
 
-		std::dynamic_pointer_cast<ARC::OpenGLShader>(m_TextureShader)->Bind();
+		m_TextureShader->Bind();
 		std::dynamic_pointer_cast<ARC::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
 
 	}
@@ -194,7 +195,7 @@ public:
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
-		std::dynamic_pointer_cast<ARC::OpenGLShader>(m_SquareShader)->Bind();
+		m_SquareShader->Bind();
 		std::dynamic_pointer_cast<ARC::OpenGLShader>(m_SquareShader)->UploadUniformFloat3("u_Color", m_SquareColor);
 
 		for (int y = 0; y < 20; y++) 
@@ -210,9 +211,10 @@ public:
 		}
 
 		m_Texture->Bind();
-
 		ARC::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 		//ARC::Renderer::Submit(m_Shader, m_VertexArray);
+		m_ShrekTexture->Bind();
+		ARC::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		ARC::Renderer::EndScene();
 
@@ -220,7 +222,7 @@ public:
 
 	virtual void OnImGuiRender() override
 	{
-		ImGui::Begin("Settings");
+		ImGui::Begin("Color settings");
 		ImGui::ColorEdit3("Square Color", glm::value_ptr(m_SquareColor));
 		ImGui::End();
 	}
@@ -238,7 +240,7 @@ private:
 	ARC::Ref<ARC::VertexArray> m_SquareVA;
 	ARC::Ref<ARC::Shader> m_SquareShader, m_TextureShader;
 
-	ARC::Ref<ARC::Texture2D> m_Texture;
+	ARC::Ref<ARC::Texture2D> m_Texture, m_ShrekTexture;
 
 	ARC::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;
