@@ -158,9 +158,10 @@ public:
 			}
 		)";
 
-		m_TextureShader.reset(ARC::Shader::Create(vertexTextureSrc, fragmentTextureSrc));
+		m_TextureShader.reset(ARC::Shader::Create("assets/shaders/Texture.glsl"));
 		
 		m_Texture = ARC::Texture2D::Create("assets/textures/Checkerboard.jpg");
+
 		m_ShrekTexture = ARC::Texture2D::Create("assets/textures/shrek_PNG2.png");
 
 		m_TextureShader->Bind();
