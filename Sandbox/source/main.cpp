@@ -68,7 +68,7 @@ public:
 			}
 		)";
 
-		m_Shader.reset(ARC::Shader::Create(vertexSrc, fragmentSrc));
+		m_Shader = ARC::Shader::Create("Triangle", vertexSrc, fragmentSrc);
 
 		float square[5 * 4] =
 		{
@@ -123,50 +123,16 @@ public:
 			}
 		)";
 
-		m_SquareShader.reset(ARC::Shader::Create(vertexSquareSrc, fragmentSquareSrc));
+		m_SquareShader = ARC::Shader::Create("Square", vertexSquareSrc, fragmentSquareSrc);
 
-		std::string vertexTextureSrc = R"(
-			#version 330 core
-
-			layout(location = 0) in vec3 a_Position;
-			layout(location = 1) in vec2 a_TextureCoord;
-
-			uniform mat4 u_ViewProjection;
-			uniform mat4 u_Transform;
-			
-			out vec2 v_TextureCoord;
-
-			void main()
-			{
-				v_TextureCoord = a_TextureCoord;
-				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0f);
-			}
-		)";
-
-		std::string fragmentTextureSrc = R"(
-			#version 330 core
-
-			layout(location = 0) out vec4 color;
-
-			in vec2 v_TextureCoord;
-
-			uniform sampler2D u_Texture;
-			
-			void main()
-			{
-				color = texture(u_Texture, v_TextureCoord);
-			}
-		)";
-
-		m_TextureShader.reset(ARC::Shader::Create("assets/shaders/Texture.glsl"));
+		
+		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 		
 		m_Texture = ARC::Texture2D::Create("assets/textures/Checkerboard.jpg");
-
 		m_ShrekTexture = ARC::Texture2D::Create("assets/textures/shrek_PNG2.png");
 
-		m_TextureShader->Bind();
-		std::dynamic_pointer_cast<ARC::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
-
+		textureShader->Bind();
+		std::dynamic_pointer_cast<ARC::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	void OnUpdate(ARC::Timestep ts) override
@@ -211,11 +177,13 @@ public:
 			}
 		}
 
+		auto textureShader = m_ShaderLibrary.Get("Texture");
+
 		m_Texture->Bind();
-		ARC::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		ARC::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 		//ARC::Renderer::Submit(m_Shader, m_VertexArray);
 		m_ShrekTexture->Bind();
-		ARC::Renderer::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		ARC::Renderer::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		ARC::Renderer::EndScene();
 
@@ -234,12 +202,12 @@ public:
 	}
 
 private:
-
+	ARC::ShaderLibrary m_ShaderLibrary;
 	ARC::Ref<ARC::Shader> m_Shader;
 	ARC::Ref<ARC::VertexArray> m_VertexArray;
 
 	ARC::Ref<ARC::VertexArray> m_SquareVA;
-	ARC::Ref<ARC::Shader> m_SquareShader, m_TextureShader;
+	ARC::Ref<ARC::Shader> m_SquareShader;
 
 	ARC::Ref<ARC::Texture2D> m_Texture, m_ShrekTexture;
 
