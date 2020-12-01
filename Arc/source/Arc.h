@@ -23,6 +23,7 @@
 #include "Arc/Renderer/VertexArray.h"
 
 #include "Arc/Renderer/OrthographicCamera.h"
+#include "Arc/Renderer/OrthographicCameraController.h"
 // ----------------------------------------
 
 // ---Entry Point--------------------------

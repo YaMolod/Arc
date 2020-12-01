@@ -8,10 +8,10 @@ class TestLayer : public ARC::Layer
 {
 public:
 	TestLayer()
-		: Layer("Test"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
+		: Layer("Test"), m_CameraController(1280.0f / 720.0f, true)
 	{
 
-		m_VertexArray.reset(ARC::VertexArray::Create());
+		m_VertexArray = ARC::VertexArray::Create();
 
 		float vertices[3 * 7] =
 		{
@@ -21,7 +21,7 @@ public:
 		};
 
 		ARC::Ref<ARC::VertexBuffer> vertexBuffer;
-		vertexBuffer.reset(ARC::VertexBuffer::Create(vertices, sizeof(vertices)));
+		vertexBuffer = ARC::VertexBuffer::Create(vertices, sizeof(vertices));
 
 		vertexBuffer->SetLayout(
 			{
@@ -33,7 +33,7 @@ public:
 		uint32_t indices[3] = { 0, 1, 2 };
 
 		ARC::Ref<ARC::IndexBuffer> indexBuffer;
-		indexBuffer.reset(ARC::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		indexBuffer = ARC::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
 		std::string vertexSrc = R"(
@@ -79,9 +79,9 @@ public:
 
 		};
 
-		m_SquareVA.reset(ARC::VertexArray::Create());
+		m_SquareVA = ARC::VertexArray::Create();
 		ARC::Ref<ARC::VertexBuffer> squareVB;
-		squareVB.reset(ARC::VertexBuffer::Create(square, sizeof(square)));
+		squareVB = ARC::VertexBuffer::Create(square, sizeof(square));
 
 		squareVB->SetLayout(
 			{
@@ -93,7 +93,7 @@ public:
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
 
 		ARC::Ref<ARC::IndexBuffer> squareIB;
-		squareIB.reset(ARC::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
+		squareIB = ARC::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
 		std::string vertexSquareSrc = R"(
@@ -137,28 +137,12 @@ public:
 
 	void OnUpdate(ARC::Timestep ts) override
 	{
-		if (ARC::Input::IskeyPressed(ARC_KEY_LEFT))
-			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
-		else if (ARC::Input::IskeyPressed(ARC_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraMoveSpeed * ts;
-
-		if (ARC::Input::IskeyPressed(ARC_KEY_UP))
-			m_CameraPosition.y += m_CameraMoveSpeed * ts;
-		else if (ARC::Input::IskeyPressed(ARC_KEY_DOWN))
-			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
-
-		if (ARC::Input::IskeyPressed(ARC_KEY_Q))
-			m_CameraRotation += m_CameraRotationSpeed * ts;
-		else if (ARC::Input::IskeyPressed(ARC_KEY_E))
-			m_CameraRotation -= m_CameraRotationSpeed * ts;
+		m_CameraController.OnUpdate(ts);
 
 		ARC::RenderCommand::SetClearColor({ 0.2f, 0.2f, 0.2f, 1 });
 		ARC::RenderCommand::Clear();
 
-		m_Camera.SetPosition(m_CameraPosition);
-		m_Camera.SetRotation(m_CameraRotation);
-
-		ARC::Renderer::BeginScene(m_Camera);
+		ARC::Renderer::BeginScene(m_CameraController.GetCamera());
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
@@ -196,9 +180,9 @@ public:
 		ImGui::End();
 	}
 
-	virtual void OnEvent(ARC::Event& event) override
+	virtual void OnEvent(ARC::Event& e) override
 	{
-		
+		m_CameraController.OnEvent(e);
 	}
 
 private:
@@ -211,13 +195,9 @@ private:
 
 	ARC::Ref<ARC::Texture2D> m_Texture, m_ShrekTexture;
 
-	ARC::OrthographicCamera m_Camera;
+	ARC::OrthographicCameraController m_CameraController;
 	glm::vec3 m_CameraPosition;
-	float m_CameraMoveSpeed = 5.0f;
-
-	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 180.0f;
-
+	
 	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };
 
