@@ -34,10 +34,12 @@ namespace ARC
 		inline Window& GetWindow() { return *m_Window; }
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
+		bool OnWindowResize(WindowResizeEvent& e);
 	private:
 		static Application* s_Instance;
 
 		bool m_Running = true;
+		bool m_Miniized = false;
 		Scope<Window> m_Window;
 
 		ImGuiLayer* m_ImGuiLayer;

@@ -43,7 +43,6 @@ namespace ARC
 
 		if (!s_GLFWInitialized)
 		{
-			// TODO: glfwTerminate
 			int success = glfwInit();
 			ARC_CORE_ASSERT(success, "Could not initialize GLFW!");
 			glfwSetErrorCallback(GLFWErrorCallBack);

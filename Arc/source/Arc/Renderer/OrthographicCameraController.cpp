@@ -6,8 +6,8 @@
 
 namespace ARC
 {
-	OrthographicCameraController::OrthographicCameraController(float aspectRation, bool rotation)
-		: m_AspectRation(aspectRation), m_Camera(-m_AspectRation * m_ZoomLevel, m_AspectRation* m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel), m_Rotation(rotation)
+	OrthographicCameraController::OrthographicCameraController(float aspectRatio, bool rotation)
+		: m_AspectRatio(aspectRatio), m_Camera(-m_AspectRatio * m_ZoomLevel, m_AspectRatio* m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel), m_Rotation(rotation)
 	{
 	}
 
@@ -41,22 +41,21 @@ namespace ARC
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<MouseScrolledEvent>(ARC_BIND_EVENT_FN(OrthographicCameraController::OnMouseScrolled));
 		dispatcher.Dispatch<WindowResizeEvent>(ARC_BIND_EVENT_FN(OrthographicCameraController::OnWIndowResized));
-
 	}
 
 	bool OrthographicCameraController::OnMouseScrolled(MouseScrolledEvent& e)
 	{
 		m_ZoomLevel -= e.GetYOffset() * 0.25f;
 		m_ZoomLevel = std::max(m_ZoomLevel, 0.25f);
-		m_Camera.SetProjection(-m_AspectRation * m_ZoomLevel, m_AspectRation * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
+		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
 
 		return false;
 	}
 
 	bool OrthographicCameraController::OnWIndowResized(WindowResizeEvent& e)
 	{
-		m_AspectRation -= (float)e.GetWidth() / (float)e.GetHeight();
-		m_Camera.SetProjection(-m_AspectRation * m_ZoomLevel, m_AspectRation * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
+		m_AspectRatio = (float)e.GetWidth() / (float)e.GetHeight();
+		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
 
 		return false;
 	}
