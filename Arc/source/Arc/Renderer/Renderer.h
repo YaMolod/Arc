@@ -1,6 +1,7 @@
 #pragma once
 
 #include "RenderCommand.h"
+#include "Renderer2D.h"
 #include "OrthographicCamera.h"
 #include "Shader.h"
 
@@ -25,6 +26,6 @@ namespace ARC
 			glm::mat4 ViewProjectionMatrix;
 		};
 
-		static SceneData* m_SceneData;
+		static Scope<SceneData> m_SceneData;
 	};
 }

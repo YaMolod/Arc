@@ -1,0 +1,30 @@
+﻿  arcpch.cpp
+  Application.cpp
+  Layer.cpp
+  LayerStack.cpp
+  Log.cpp
+  ImGuiBuild.cpp
+  ImGuiLayer.cpp
+  OpenGLBuffer.cpp
+  OpenGLRendererAPI.cpp
+  OpenGLShader.cpp
+  OpenGLTexture.cpp
+  OpenGLVertexArray.cpp
+C:\Engine\Arc\Arc\source\Arc\Platform\OpenGL\OpenGLVertexArray.cpp(64,52): warning C4312: приведение типов: преобразование из "const uint32_t" в "const void *" большего размера
+  OpenGlContext.cpp
+  WindowsInput.cpp
+  WindowsWindow.cpp
+  Buffer.cpp
+  OrthographicCamera.cpp
+  OrthographicCameraController.cpp
+  RenderCommand.cpp
+  Renderer.cpp
+  RendererAPI.cpp
+  Создание кода...
+  Компиляция...
+  Shader.cpp
+  Texture.cpp
+  VertexArray.cpp
+  stb_image.cpp
+  Создание кода...
+  Arc.vcxproj -> C:\Engine\Arc\bin\Release-windows-x86_64\Arc\Arc.lib

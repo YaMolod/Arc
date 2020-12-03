@@ -1,6 +1,6 @@
 #include "arcpch.h"
 #include "WindowsInput.h"
-#include "Arc/Application.h"
+#include "Arc/Core/Application.h"
 
 #include <GLFW/glfw3.h>
 

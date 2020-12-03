@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Arc/Input.h"
+#include "Arc/Core/Input.h"
 
 namespace ARC
 {

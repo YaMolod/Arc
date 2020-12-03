@@ -2,19 +2,20 @@
 
 // for applications only
 
-#include "Arc/Application.h"
+#include "Arc/Core/Application.h"
 #include "Arc/ImGui/ImGuiLayer.h"
-#include "Arc/Log.h"
-#include "Arc/Layer.h"
+#include "Arc/Core/Log.h"
+#include "Arc/Core/Layer.h"
 
 #include "Arc/Core/Timestep.h"
 
-#include "Arc/Input.h"
-#include "Arc/KeyCodes.h"
-#include "Arc/MouseButtonCodes.h"
+#include "Arc/Core/Input.h"
+#include "Arc/Core/KeyCodes.h"
+#include "Arc/Core/MouseButtonCodes.h"
 
 // ---Renderer-----------------------------
 #include "Arc/Renderer/Renderer.h"
+#include "Arc/Renderer/Renderer2D.h"
 #include "Arc/Renderer/RenderCommand.h"
 
 #include "Arc/Renderer/Shader.h"
@@ -26,7 +27,4 @@
 #include "Arc/Renderer/OrthographicCameraController.h"
 // ----------------------------------------
 
-// ---Entry Point--------------------------
-#include "Arc/EntryPointh.h"
-// ----------------------------------------
 

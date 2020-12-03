@@ -140,22 +140,24 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="source\Arc\Renderer\Renderer2D.h" />
     <ClInclude Include="source\Arc.h" />
-    <ClInclude Include="source\Arc\Application.h" />
-    <ClInclude Include="source\Arc\Core.h" />
+    <ClInclude Include="source\Arc\Core\Application.h" />
+    <ClInclude Include="source\Arc\Core\Core.h" />
+    <ClInclude Include="source\Arc\Core\EntryPointh.h" />
+    <ClInclude Include="source\Arc\Core\Input.h" />
+    <ClInclude Include="source\Arc\Core\KeyCodes.h" />
+    <ClInclude Include="source\Arc\Core\Layer.h" />
+    <ClInclude Include="source\Arc\Core\LayerStack.h" />
+    <ClInclude Include="source\Arc\Core\Log.h" />
+    <ClInclude Include="source\Arc\Core\MouseButtonCodes.h" />
     <ClInclude Include="source\Arc\Core\Timestep.h" />
-    <ClInclude Include="source\Arc\EntryPointh.h" />
+    <ClInclude Include="source\Arc\Core\Window.h" />
     <ClInclude Include="source\Arc\Events\ApplicationEvent.h" />
     <ClInclude Include="source\Arc\Events\Event.h" />
     <ClInclude Include="source\Arc\Events\KeyEvent.h" />
     <ClInclude Include="source\Arc\Events\MouseEvent.h" />
     <ClInclude Include="source\Arc\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="source\Arc\Input.h" />
-    <ClInclude Include="source\Arc\KeyCodes.h" />
-    <ClInclude Include="source\Arc\Layer.h" />
-    <ClInclude Include="source\Arc\LayerStack.h" />
-    <ClInclude Include="source\Arc\Log.h" />
-    <ClInclude Include="source\Arc\MouseButtonCodes.h" />
     <ClInclude Include="source\Arc\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="source\Arc\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="source\Arc\Platform\OpenGL\OpenGLShader.h" />
@@ -174,7 +176,6 @@
     <ClInclude Include="source\Arc\Renderer\Shader.h" />
     <ClInclude Include="source\Arc\Renderer\Texture.h" />
     <ClInclude Include="source\Arc\Renderer\VertexArray.h" />
-    <ClInclude Include="source\Arc\Window.h" />
     <ClInclude Include="source\arcpch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_features.hpp" />
@@ -587,12 +588,13 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\Arc\Application.cpp" />
+    <ClCompile Include="source\Arc\Renderer\Renderer2D.cpp" />
+    <ClCompile Include="source\Arc\Core\Application.cpp" />
+    <ClCompile Include="source\Arc\Core\Layer.cpp" />
+    <ClCompile Include="source\Arc\Core\LayerStack.cpp" />
+    <ClCompile Include="source\Arc\Core\Log.cpp" />
     <ClCompile Include="source\Arc\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="source\Arc\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="source\Arc\Layer.cpp" />
-    <ClCompile Include="source\Arc\LayerStack.cpp" />
-    <ClCompile Include="source\Arc\Log.cpp" />
     <ClCompile Include="source\Arc\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="source\Arc\Platform\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="source\Arc\Platform\OpenGL\OpenGLShader.cpp" />
