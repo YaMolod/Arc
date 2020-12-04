@@ -3,8 +3,10 @@
 
 #include "VertexArray.h"
 #include "Shader.h"
-#include "Arc/Platform/OpenGL/OpenGLShader.h"
 #include "RenderCommand.h"
+
+#include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 namespace ARC
 {
@@ -56,8 +58,7 @@ namespace ARC
 	void Renderer2D::BeginScene(const OrthographicCamera& camera)
 	{
 		s_Data->FlatColorShader->Bind();
-		std::dynamic_pointer_cast<ARC::OpenGLShader>(s_Data->FlatColorShader)->UploadUniformMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
-		std::dynamic_pointer_cast<ARC::OpenGLShader>(s_Data->FlatColorShader)->UploadUniformMat4("u_Transform", glm::mat4(1.0f));
+		s_Data->FlatColorShader->SetMat4("u_ViewProjection", camera.GetViewProjectionMatrix());
 	}
 
 	void Renderer2D::EndScene()
@@ -72,7 +73,11 @@ namespace ARC
 	void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::vec4& color)
 	{
 		s_Data->FlatColorShader->Bind();
-		std::dynamic_pointer_cast<ARC::OpenGLShader>(s_Data->FlatColorShader)->UploadUniformFloat3("u_Color", color);
+		s_Data->FlatColorShader->SetFloat3("u_Color", color);
+
+		glm::mat4 transform = glm::translate(glm::mat4(1.0f), position)
+			* glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
+		s_Data->FlatColorShader->SetMat4("u_Transform", transform);
 
 		s_Data->QuadVertexArray->Bind();
 		RenderCommand::DrawIndexed(s_Data->QuadVertexArray);

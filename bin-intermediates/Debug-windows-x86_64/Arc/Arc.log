@@ -1,11 +1,2 @@
-﻿  Application.cpp
-  ImGuiLayer.cpp
-  WindowsInput.cpp
-  Buffer.cpp
-  Renderer.cpp
-  Renderer2D.cpp
-  Shader.cpp
-  Texture.cpp
-  VertexArray.cpp
-  Создание кода...
+﻿  Renderer2D.cpp
   Arc.vcxproj -> C:\Engine\Arc\bin\Debug-windows-x86_64\Arc\Arc.lib

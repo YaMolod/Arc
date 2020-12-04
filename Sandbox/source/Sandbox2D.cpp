@@ -31,6 +31,7 @@ void Sandbox2D::OnUpdate(ARC::Timestep ts)
 
 	ARC::Renderer2D::BeginScene(m_CameraController.GetCamera());
 	ARC::Renderer2D::DrawQuad({ 0.0f, 0.0f }, { 1.0f, 1.0f }, { 0.8f, 0.2f, 0.3f, 1.0f });
+	ARC::Renderer2D::DrawQuad({ 1.0f, 1.0f }, { 0.7f, 0.7f }, { 0.2f, 0.3f, 0.8f, 1.0f });
 	ARC::Renderer2D::EndScene();
 }
 
