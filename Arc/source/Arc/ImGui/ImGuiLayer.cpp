@@ -10,7 +10,7 @@
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
 
-namespace ARC 
+namespace ARC
 {
 
 	ImGuiLayer::ImGuiLayer()
@@ -75,7 +75,7 @@ namespace ARC
 		ImGuiIO& io = ImGui::GetIO();
 		Application& app = Application::Get();
 		io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
-		
+
 		// Rendering
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -88,5 +88,5 @@ namespace ARC
 			glfwMakeContextCurrent(backup_current_context);
 		}
 	}
-
+}
 

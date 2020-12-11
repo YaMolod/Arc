@@ -1,4 +1,5 @@
 ﻿  arcpch.cpp
+C:\Engine\Arc\Arc\source\Arc\Debug\Instrumentor.h(114,1): warning C4267: инициализация: преобразование из "size_t" в "uint32_t"; возможна потеря данных
   Application.cpp
   Layer.cpp
   LayerStack.cpp

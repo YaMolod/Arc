@@ -1,6 +1,6 @@
 ﻿  Sandbox.cpp
+C:\Engine\Arc\Arc\source\Arc\Debug\Instrumentor.h(114,1): warning C4267: инициализация: преобразование из "size_t" в "uint32_t"; возможна потеря данных
   Sandbox2D.cpp
-C:\Engine\Arc\Sandbox\source\Sandbox2D.cpp(57,3): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Engine\Arc\Sandbox\source\Sandbox2D.cpp(58,3): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Engine\Arc\Arc\source\Arc\Debug\Instrumentor.h(114,1): warning C4267: инициализация: преобразование из "size_t" в "uint32_t"; возможна потеря данных
   Создание кода...
   Sandbox.vcxproj -> C:\Engine\Arc\bin\Debug-windows-x86_64\Sandbox\Sandbox.exe

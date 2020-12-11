@@ -24,20 +24,21 @@ void Sandbox2D::OnDetach()
 
 void Sandbox2D::OnUpdate(ARC::Timestep ts)
 {
-	PROFILE_SCOPE("Sandbox2D::OnUpdate");
+	ARC_PROFILE_FUNCTION();
+
 	{
-		PROFILE_SCOPE("m_CameraController.OnUpdate");
+		ARC_PROFILE_SCOPE("m_CameraController.OnUpdate");
 		m_CameraController.OnUpdate(ts);
 	}
 
 	{
-		PROFILE_SCOPE("Renderer Clear");
+		ARC_PROFILE_SCOPE("Renderer Clear");
 		ARC::RenderCommand::SetClearColor({ 0.2f, 0.2f, 0.2f, 1 });
 		ARC::RenderCommand::Clear();
 	}
 
 	{
-		PROFILE_SCOPE("Renderer Draw");
+		ARC_PROFILE_SCOPE("Renderer Draw");
 		ARC::Renderer2D::BeginScene(m_CameraController.GetCamera());
 		ARC::Renderer2D::DrawQuad({ 0.0f, 0.0f }, { 1.0f, 1.0f }, { 0.8f, 0.2f, 0.3f, 1.0f });
 		ARC::Renderer2D::DrawQuad({ 1.0f, 1.0f }, { 0.7f, 0.7f }, { 0.2f, 0.3f, 0.8f, 1.0f });
@@ -48,19 +49,10 @@ void Sandbox2D::OnUpdate(ARC::Timestep ts)
 
 void Sandbox2D::OnImGuiRender()
 {
+	ARC_PROFILE_FUNCTION();
+
 	ImGui::Begin("Color settings");
 	ImGui::ColorEdit3("Square Color", glm::value_ptr(m_SquareColor));
-
-	for (auto& result : m_ProfileResults)
-	{
-		char label[50];
-		strcpy(label, "%.3fms");
-		strcat(label, result.Name);
-
-		ImGui::Text(label, result.Time);
-	}
-
-	m_ProfileResults.clear();
 	ImGui::End();
 }
 

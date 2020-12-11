@@ -140,6 +140,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="source\Arc\Debug\Instrumentor.h" />
     <ClInclude Include="source\Arc\Renderer\Renderer2D.h" />
     <ClInclude Include="source\Arc.h" />
     <ClInclude Include="source\Arc\Core\Application.h" />
