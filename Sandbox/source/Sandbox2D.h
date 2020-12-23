@@ -24,6 +24,7 @@ private:
 	ARC::Ref<ARC::VertexArray> m_SquareVA;
 	ARC::Ref<ARC::Texture2D> m_Texture;
 
-	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
+	glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 
 };
+

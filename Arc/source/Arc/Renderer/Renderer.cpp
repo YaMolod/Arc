@@ -28,6 +28,8 @@ namespace ARC
 
 	void Renderer::Init()
 	{
+		ARC_PROFILE_FUNCTION();
+
 		RenderCommand::Init();
 		Renderer2D::Init();
 	}

@@ -25,6 +25,8 @@ namespace ARC
 
 	void ImGuiLayer::OnAttach()
 	{
+		ARC_PROFILE_FUNCTION();
+
 		// Setup Dear ImGui context
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
@@ -58,6 +60,8 @@ namespace ARC
 
 	void ImGuiLayer::OnDetach()
 	{
+		ARC_PROFILE_FUNCTION();
+
 		ImGui_ImplOpenGL3_Shutdown();
 		ImGui_ImplGlfw_Shutdown();
 		ImGui::DestroyContext();
@@ -65,6 +69,8 @@ namespace ARC
 
 	void ImGuiLayer::Begin()
 	{
+		ARC_PROFILE_FUNCTION();
+
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();

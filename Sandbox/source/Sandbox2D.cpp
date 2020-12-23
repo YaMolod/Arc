@@ -15,6 +15,8 @@ Sandbox2D::Sandbox2D()
 
 void Sandbox2D::OnAttach()
 {
+	ARC_PROFILE_FUNCTION();
+
 	m_Texture = ARC::Texture2D::Create("assets/textures/Checkerboard.jpg");
 }
 
@@ -26,23 +28,17 @@ void Sandbox2D::OnUpdate(ARC::Timestep ts)
 {
 	ARC_PROFILE_FUNCTION();
 
-	{
-		ARC_PROFILE_SCOPE("m_CameraController.OnUpdate");
-		m_CameraController.OnUpdate(ts);
-	}
+	m_CameraController.OnUpdate(ts);
 
-	{
-		ARC_PROFILE_SCOPE("Renderer Clear");
-		ARC::RenderCommand::SetClearColor({ 0.2f, 0.2f, 0.2f, 1 });
-		ARC::RenderCommand::Clear();
-	}
+	ARC::RenderCommand::SetClearColor({ 0.2f, 0.2f, 0.2f, 1 });
+	ARC::RenderCommand::Clear();
 
 	{
 		ARC_PROFILE_SCOPE("Renderer Draw");
 		ARC::Renderer2D::BeginScene(m_CameraController.GetCamera());
-		ARC::Renderer2D::DrawQuad({ 0.0f, 0.0f }, { 1.0f, 1.0f }, { 0.8f, 0.2f, 0.3f, 1.0f });
-		ARC::Renderer2D::DrawQuad({ 1.0f, 1.0f }, { 0.7f, 0.7f }, { 0.2f, 0.3f, 0.8f, 1.0f });
-		ARC::Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 10.0f, 10.0f }, m_Texture);
+		ARC::Renderer2D::DrawRotatedQuad({ 0.0f, 0.0f }, { 1.0f, 1.0f }, glm::radians(-45.0f), { 0.8f, 0.2f, 0.3f, 1.0f });
+		ARC::Renderer2D::DrawQuad({ 1.0f, 1.0f }, { 0.7f, 0.7f }, m_SquareColor);
+		ARC::Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 10.0f, 10.0f }, m_Texture, 10.f, glm::vec4(1.0f, 0.9f, 0.9f, 1.0f));
 		ARC::Renderer2D::EndScene();
 	}
 }

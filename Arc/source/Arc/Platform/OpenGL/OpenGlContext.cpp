@@ -24,6 +24,8 @@ namespace ARC
 
 	void OpenGLContext::SwapBuffers()
 	{
+		ARC_PROFILE_FUNCTION();
+
 		glfwSwapBuffers(m_WindowHandle);
 	}
 }
