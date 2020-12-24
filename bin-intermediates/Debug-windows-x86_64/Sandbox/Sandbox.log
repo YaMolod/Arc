@@ -1,6 +1,3 @@
 ﻿  Sandbox.cpp
 C:\Engine\Arc\Arc\source\Arc\Debug\Instrumentor.h(114,1): warning C4267: инициализация: преобразование из "size_t" в "uint32_t"; возможна потеря данных
-  Sandbox2D.cpp
-C:\Engine\Arc\Arc\source\Arc\Debug\Instrumentor.h(114,1): warning C4267: инициализация: преобразование из "size_t" в "uint32_t"; возможна потеря данных
-  Создание кода...
   Sandbox.vcxproj -> C:\Engine\Arc\bin\Debug-windows-x86_64\Sandbox\Sandbox.exe
